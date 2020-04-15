@@ -1,0 +1,19 @@
+{
+  "name": "covidhelper-frontend",
+  "version": "1.0.0",
+  "description": "Front-end do projeto Covid Helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://NandaFerry@bitbucket.org/covidhelper/covidhelper-frontend.git"
+  },
+  "keywords": [
+    "covid"
+  ],
+  "author": "Fernanda Ferry e Yago Henrique",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/covidhelper/covidhelper-frontend#readme"
+}

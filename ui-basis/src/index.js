@@ -11,22 +11,23 @@ class InputC extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            name: "",
-            cnpj: "",
-            cpf:"",
-            zipCode: "",
-            addOn: "",
-            phone: "",
-            street: "",
-            city: "",
-            state: "",
-            neighborhood: "",
-            addreddNumber: "",
+            name: null ,
+            cnpj: null ,
+            cpf: null,
+            zipCode: null,
+            addOn: null,
+            phone: null,
+            street: null,
+            city: null,
+            state: null,
+            neighborhood: null,
+            addreddNumber: null,
             clickedCNPJ: false,
             clickedCPF: false
         };
         this.CNPJHandler = this.CNPJHandler.bind(this);
         this.CPFHandler = this.CPFHandler.bind(this);
+        this.handleChange = this.handleChange.bind(this);
 
         this.onChange = (evento) => {
             const  state = Object.assign({}, this.state);
@@ -34,6 +35,7 @@ class InputC extends React.Component{
             state[campo] = evento.target.value;
             this.setState(state);
         };
+
         this.onSubmit = (evento) => {
             evento.preventDefault();
             console.log(this.state);
@@ -46,18 +48,24 @@ class InputC extends React.Component{
           clickedCNPJ: !this.state.clickedCNPJ
         });
       }
-      CPFHandler() {
+
+    CPFHandler() {
         this.setState({
           clickedCPF: !this.state.clickedCPF
         });
     }
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
+
     render(){
             const radioCPF = this.state.clickedCPF ;
             const radioCNPJ = this.state.clickedCNPJ ;
         return(
             <div className={"formulario"}>
                 <h2 className={"login_texto"}>Login</h2>
-                <form>
+                <form onSubmit={this.onSubmit} >
                     <div className="form-row" id="radio">
                         <FormGroup className="col-md-6">
                            <Input type="radio" id="tipo_id" name="tipo" value="cnpj" clickedCNPJ={true} clickedCPF={false}
@@ -72,47 +80,47 @@ class InputC extends React.Component{
                         <div className="form-row" >
                             <FormGroup className="col-md-6">
                                 <Label for="inputCNPJ" >CNPJ</Label>
-                                <Input  id="inputCNPJ" value={this.state.cnpj} onChange={this.onChange} />
+                                <Input  id="inputCNPJ" name="cnpj" value={this.state.cnpj} onChange={this.onChange} />
                             </FormGroup>
                             <FormGroup className="col-md-6">
                                 <Label for="inputRazao">Razão Social</Label>
-                                <Input type="text"  id="inputRazao" value={this.state.name}/>
+                                <Input type="text"  id="inputRazao" name="name" value={this.state.name} onChange={this.onChange} />
                             </FormGroup>
                         </div>
                         <div className="form-row">
                             <FormGroup className="col-md-6">
                                 <Label for="inputZip">CEP</Label>
-                                <Input type="text"  id="inputZip" value={this.state.zipCode} onChange={this.onChange}/>
+                                <Input type="text"  id="inputZip" name="zipCode" value={this.state.zipCode} onChange={this.onChange}/>
                             </FormGroup>
                             <FormGroup className="col-md-6">
                                 <Label for="inputStreet">Rua</Label>
-                                <Input type="text"  id="inputStreet" value={this.state.street}/>
+                                <Input type="text"  id="inputStreet" name="street" value={this.state.street} onChange={this.onChange} />
                             </FormGroup>
                         </div>
                         <div className="form-row">
                             <FormGroup className="col-md-6">
                                 <Label for="inputCity">Cidade</Label>
-                                <Input type="text"  id="inputCity" value={this.state.city} />
+                                <Input type="text"  id="inputCity" name="city" value={this.state.city} onChange={this.onChange} />
                             </FormGroup>
                             <FormGroup className="col-md-2">
                                 <Label for="inputState">Estado</Label>
-                                <Input type="text" id="inputState"  value={this.state.state}/>
+                                <Input type="text" id="inputState"  name="state" value={this.state.state} onChange={this.onChange} />
                             </FormGroup>
                             <FormGroup className="col-md-4">
                                 <Label for="inputBairro">Bairro</Label>
-                                <Input type="text" id="inputBairro" value={this.state.neighborhood}  />
+                                <Input type="text" id="inputBairro" name="neighborhood" value={this.state.neighborhood}  onChange={this.onChange} />
                             </FormGroup>
                             <FormGroup className="col-md-4">
                                 <Label for="inputComplement">Complemento</Label>
-                                <Input type="text" id="inputComplement" value={this.state.addOn} onChange={this.onChange}  />
+                                <Input type="text" id="inputComplement" name="addOn" value={this.state.addOn} onChange={this.onChange}  />
                             </FormGroup>
                             <FormGroup className="col-md-2">
                                 <Label for="inputNumber">Numero</Label>
-                                <Input type="text" id="inputNumber" value={this.state.addreddNumber} onChange={this.onChange}  />
+                                <Input type="text" id="inputNumber" name="addreddNumber" value={this.state.addreddNumber} onChange={this.onChange}  />
                             </FormGroup>
                             <FormGroup className="col-md-6">
                                 <Label for="inputTel">Telefone</Label>
-                                <Input type="text" id="inputTel" value={this.state.phone} onChange={this.onChange}  />
+                                <Input type="text" id="inputTel" name="phone" value={this.state.phone} onChange={this.onChange}  />
                             </FormGroup>
                         </div>
                     </div>
@@ -120,51 +128,51 @@ class InputC extends React.Component{
                             <div className="form-row" >
                                 <FormGroup className="col-md-6">
                                     <Label for="inputCpf" >CPF</Label>
-                                    <Input  id="inputCpf" value={this.state.cpf} onChange={this.onChange} />
+                                    <Input  id="inputCpf" name="cpf" value={this.state.cpf} onChange={this.onChange} />
                                 </FormGroup>
                                 <FormGroup className="col-md-6">
                                     <Label for="inputNome">Nome</Label>
-                                    <Input type="text"  id="inputNome" value={this.state.name} />
+                                    <Input type="text"  id="inputNome" name="name" value={this.state.name} onChange={this.onChange} />
                                 </FormGroup>
                             </div>
                             <div className="form-row">
                                 <FormGroup className="col-md-6">
                                     <Label for="inputZip">CEP</Label>
-                                    <Input type="text"  id="inputZip" value={this.state.zipCode} onChange={this.onChange}/>
+                                    <Input type="text"  id="inputZip" name="zipCode" value={this.state.zipCode} onChange={this.onChange}/>
                                 </FormGroup>
                                 <FormGroup className="col-md-6">
                                     <Label for="inputStreet">Rua</Label>
-                                    <Input type="text"  id="inputStreet" value={this.state.street}/>
+                                    <Input type="text"  id="inputStreet" name="street" value={this.state.street} onChange={this.onChange} />
                                 </FormGroup>
                             </div>
                             <div className="form-row">
                                 <FormGroup className="col-md-6">
                                     <Label for="inputCity">Cidade</Label>
-                                    <Input type="text"  id="inputCity" value={this.state.city}/>
+                                    <Input type="text"  id="inputCity" name="city" value={this.state.city} onChange={this.onChange} />
                                 </FormGroup>
                                 <FormGroup className="col-md-2">
                                     <Label for="inputState">Estado</Label>
-                                    <Input type="text" id="inputState" value={this.state.state} />
+                                    <Input type="text" id="inputState" name="state" value={this.state.state} onChange={this.onChange} />
                                 </FormGroup>
                                 <FormGroup className="col-md-4">
                                     <Label for="inputBairro">Bairro</Label>
-                                    <Input type="text" id="inputBairro" value={this.state.neighborhood} />
+                                    <Input type="text" id="inputBairro" name="neighborhood" value={this.state.neighborhood} onChange={this.onChange} />
                                 </FormGroup>
                                 <FormGroup className="col-md-4">
                                     <Label for="inputComplement">Complemento</Label>
-                                    <Input type="text" id="inputComplement" value={this.state.addOn} onChange={this.onChange}  />
+                                    <Input type="text" id="inputComplement" name="addOn" value={this.state.addOn} onChange={this.onChange}  />
                                 </FormGroup>
                                 <FormGroup className="col-md-2">
                                     <Label for="inputNumber">Numero</Label>
-                                    <Input type="text" id="inputNumber" value={this.state.addreddNumber} onChange={this.onChange}  />
+                                    <Input type="text" id="inputNumber" name="addreddNumber" value={this.state.addreddNumber} onChange={this.onChange}  />
                                 </FormGroup>
                                 <FormGroup className="col-md-6">
                                     <Label for="inputTel">Telefone</Label>
-                                    <Input type="text" id="inputTel" value={this.state.phone} onChange={this.onChange}  />
+                                    <Input type="text" id="inputTel" name="phone" value={this.state.phone} onChange={this.onChange}  />
                                 </FormGroup>
                             </div>
                     </div>
-                    <Button type="submit" onSubmit={this.state} color="info">Entrar</Button>
+                    <Button type="submit" color="info">Entrar</Button>
                 </form>
             </div>
         );

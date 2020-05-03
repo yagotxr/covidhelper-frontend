@@ -8,8 +8,8 @@ import "./assets/css/paper-kit.css";
 
 
 class InputC extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: "",
             cnpj: "",
@@ -21,8 +21,13 @@ class InputC extends React.Component{
             city: "",
             state: "",
             neighborhood: "",
-            addreddNumber: ""
+            addreddNumber: "",
+            clickedCNPJ: false,
+            clickedCPF: false
         };
+        this.CNPJHandler = this.CNPJHandler.bind(this);
+        this.CPFHandler = this.CPFHandler.bind(this);
+
         this.onChange = (evento) => {
             const  state = Object.assign({}, this.state);
             const campo = evento.target.name;
@@ -33,28 +38,37 @@ class InputC extends React.Component{
             evento.preventDefault();
             console.log(this.state);
         };
-        this.onClick = (id) =>{
-            var resultDiv = document.getElementById(id).style.display;
-            if(resultDiv === "none"){
-                document.getElementById(id).style.display = 'block';
-            } else{
-                document.getElementById(id).style.display = 'none';
-            }
-        }
+
     }
 
+    CNPJHandler() {
+        this.setState({
+          clickedCNPJ: !this.state.clickedCNPJ
+        });
+      }
+      CPFHandler() {
+        this.setState({
+          clickedCPF: !this.state.clickedCPF
+        });
+    }
     render(){
+            const radioCPF = this.state.clickedCPF ;
+            const radioCNPJ = this.state.clickedCNPJ ;
         return(
             <div className={"formulario"}>
                 <h2 className={"login_texto"}>Login</h2>
                 <form>
                     <div className="form-row" id="radio">
                         <FormGroup className="col-md-6">
-                           <Input type="radio" id="tipo_id" name="tipo" value="cnpj"/> CNPJ<br/>
-                           <Input type="radio" id="tipo_id" name="tipo" value="cpf"/> CPF
+                           <Input type="radio" id="tipo_id" name="tipo" value="cnpj" clickedCNPJ={true} clickedCPF={false}
+                           onClick={this.CNPJHandler}/> CNPJ<br/>
+                           <Input type="radio" id="tipo_id" name="tipo" value="cpf" clickedCPF={this.state.clickedCPF} clickedCNPJ={false}
+                           onClick={this.CPFHandler}/> CPF
+                           {radioCPF}
+                           {radioCNPJ}
                         </FormGroup>
                     </div>
-                    <div id='cnpj_div' style={{display:"none"}}>
+                    <div id='cnpj_div'style={{ display: this.state.clickedCNPJ ? 'block' : 'none'}}>
                         <div className="form-row" >
                             <FormGroup className="col-md-6">
                                 <Label for="inputCNPJ" >CNPJ</Label>
@@ -102,7 +116,7 @@ class InputC extends React.Component{
                             </FormGroup>
                         </div>
                     </div>
-                        <div id="cpf_div" style={{display:"block"}}>
+                        <div id="cpf_div" style={{display: this.state.clickedCPF ? 'block' : 'none'}}>
                             <div className="form-row" >
                                 <FormGroup className="col-md-6">
                                     <Label for="inputCpf" >CPF</Label>

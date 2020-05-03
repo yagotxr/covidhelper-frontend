@@ -36,9 +36,23 @@ class InputC extends React.Component{
             this.setState(state);
         };
 
+        var xhr = new XMLHttpRequest();
+
         this.onSubmit = (evento) => {
-            evento.preventDefault();
-            console.log(this.state);
+           xhr.open('POST', 'localhost:8080/api/stores')
+           xhr.send(JSON.stringify({
+            "name" : this.evento.state.name,
+            "cnpj": this.evento.state.cnpj,
+            "zipCode" : this.evento.state.zipCode,
+            "street": this.evento.state.street,
+            "city": this.evento.state.city,
+            "state": this.evento.state.state,
+            "neighborhood": this.evento.state.neighborhood,
+            "addOn" : this.evento.state.addOn,
+            "addreddNumber": this.evento.state.addreddNumber,
+            "phone": this.evento.state.phone
+            } ))
+
         };
 
     }

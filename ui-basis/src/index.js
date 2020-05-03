@@ -62,43 +62,43 @@ class InputC extends React.Component{
                             </FormGroup>
                             <FormGroup className="col-md-6">
                                 <Label for="inputRazao">Razão Social</Label>
-                                <Input type="text"  id="inputRazao" disabled />
+                                <Input type="text"  id="inputRazao" value={this.state.name}/>
                             </FormGroup>
                         </div>
                         <div className="form-row">
                             <FormGroup className="col-md-6">
                                 <Label for="inputZip">CEP</Label>
-                                <Input type="text"  id="inputZip" value={this.state.cep} onChange={this.onChange}/>
+                                <Input type="text"  id="inputZip" value={this.state.zipCode} onChange={this.onChange}/>
                             </FormGroup>
                             <FormGroup className="col-md-6">
                                 <Label for="inputStreet">Rua</Label>
-                                <Input type="text"  id="inputStreet" disabled/>
+                                <Input type="text"  id="inputStreet" value={this.state.street}/>
                             </FormGroup>
                         </div>
                         <div className="form-row">
                             <FormGroup className="col-md-6">
                                 <Label for="inputCity">Cidade</Label>
-                                <Input type="text"  id="inputCity" disabled/>
+                                <Input type="text"  id="inputCity" value={this.state.city} />
                             </FormGroup>
                             <FormGroup className="col-md-2">
                                 <Label for="inputState">Estado</Label>
-                                <Input type="text" id="inputState" disabled />
+                                <Input type="text" id="inputState"  value={this.state.state}/>
                             </FormGroup>
                             <FormGroup className="col-md-4">
                                 <Label for="inputBairro">Bairro</Label>
-                                <Input type="text" id="inputBairro" disabled />
+                                <Input type="text" id="inputBairro" value={this.state.neighborhood}  />
                             </FormGroup>
                             <FormGroup className="col-md-4">
                                 <Label for="inputComplement">Complemento</Label>
-                                <Input type="text" id="inputComplement" value={this.state.complemento} onChange={this.onChange}  />
+                                <Input type="text" id="inputComplement" value={this.state.addOn} onChange={this.onChange}  />
                             </FormGroup>
                             <FormGroup className="col-md-2">
                                 <Label for="inputNumber">Numero</Label>
-                                <Input type="text" id="inputNumber" value={this.state.numero} onChange={this.onChange}  />
+                                <Input type="text" id="inputNumber" value={this.state.addreddNumber} onChange={this.onChange}  />
                             </FormGroup>
                             <FormGroup className="col-md-6">
                                 <Label for="inputTel">Telefone</Label>
-                                <Input type="text" id="inputTel" value={this.state.telefone} onChange={this.onChange}  />
+                                <Input type="text" id="inputTel" value={this.state.phone} onChange={this.onChange}  />
                             </FormGroup>
                         </div>
                     </div>

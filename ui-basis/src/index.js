@@ -39,16 +39,16 @@ class InputC extends React.Component{
         const urlPost = "localhost:8080/api/stores";
 
         this.onSubmit = (evento) => {
-            var cadastro = {"name" : this.evento.state.name,
-                "cnpj": this.evento.state.cnpj,
-                "zipCode" : this.evento.state.zipCode,
-                "street": this.evento.state.street,
-                "city": this.evento.state.city,
-                "state": this.evento.state.state,
-                "neighborhood": this.evento.state.neighborhood,
-                "addOn" : this.evento.state.addOn,
-                "addreddNumber": this.evento.state.addreddNumber,
-                "phone": this.evento.state.phone };
+            var cadastro = {"name" : this.state.name,
+                "cnpj": this.state.cnpj,
+                "zipCode" : this.state.zipCode,
+                "street": this.state.street,
+                "city": this.state.city,
+                "state": this.state.state,
+                "neighborhood": this.state.neighborhood,
+                "addOn" : this.state.addOn,
+                "addreddNumber": this.state.addreddNumber,
+                "phone": this.state.phone };
 
             const response = axios.post(urlPost,{cadastro});
             console.log(response.data)

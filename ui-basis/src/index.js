@@ -77,7 +77,7 @@ class InputC extends React.Component{
         return(
             <div className={"formulario"}>
                 <h2 className={"login_texto"}>Login</h2>
-                <form onSubmit={this.onSubmit} >
+                <form>
                     <div className="form-row" id="radio">
                         <FormGroup className="col-md-6">
                            <Input type="radio" id="tipo_id" name="tipo" value="cnpj" clickedCNPJ={true} clickedCPF={false}
@@ -184,7 +184,7 @@ class InputC extends React.Component{
                                 </FormGroup>
                             </div>
                     </div>
-                    <Button type="submit" color="info">Entrar</Button>
+                    <Button onClick={this.onSubmit} color="info">Entrar</Button>
                 </form>
             </div>
         );

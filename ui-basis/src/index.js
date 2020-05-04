@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {FormGroup, Label, Input, Button} from "reactstrap";
 import "./assets/css/bootstrap.min.css";
 import "./assets/css/paper-kit.css";
-
+import axios from 'axios';
 
 class InputC extends React.Component{
     constructor(props) {
@@ -36,25 +36,23 @@ class InputC extends React.Component{
             this.setState(state);
         };
 
-        var xhr = new XMLHttpRequest();
+        const urlPost = "localhost:8080/api/stores";
 
         this.onSubmit = (evento) => {
-           xhr.open('POST', 'localhost:8080/api/stores')
-           xhr.send(JSON.stringify({
-            "name" : this.evento.state.name,
-            "cnpj": this.evento.state.cnpj,
-            "zipCode" : this.evento.state.zipCode,
-            "street": this.evento.state.street,
-            "city": this.evento.state.city,
-            "state": this.evento.state.state,
-            "neighborhood": this.evento.state.neighborhood,
-            "addOn" : this.evento.state.addOn,
-            "addreddNumber": this.evento.state.addreddNumber,
-            "phone": this.evento.state.phone
-            } ))
+            var cadastro = {"name" : this.evento.state.name,
+                "cnpj": this.evento.state.cnpj,
+                "zipCode" : this.evento.state.zipCode,
+                "street": this.evento.state.street,
+                "city": this.evento.state.city,
+                "state": this.evento.state.state,
+                "neighborhood": this.evento.state.neighborhood,
+                "addOn" : this.evento.state.addOn,
+                "addreddNumber": this.evento.state.addreddNumber,
+                "phone": this.evento.state.phone };
 
-        };
-
+            const response = axios.post(urlPost,{cadastro});
+            console.log(response.data)
+        }
     }
 
     CNPJHandler() {

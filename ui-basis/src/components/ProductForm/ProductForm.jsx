@@ -7,7 +7,7 @@ import { FormGroup, Col, Form, Row, Input, Label, Button, Collapse, Navbar, Navb
 } from 'reactstrap'
 
 
-class StoreForm extends Component {
+class ProductForm extends Component {
     
     render() {
         return (
@@ -48,7 +48,7 @@ class StoreForm extends Component {
                     </Collapse>
                 </Navbar>
                 <Form className = "Form">
-                    <h4>Cadastro de loja</h4>
+                    <h4>Cadastro de produtos</h4>
                     <br/>
                <Row form>
                         <Col md={6}>
@@ -118,4 +118,4 @@ class StoreForm extends Component {
 }
   
 
-export default StoreForm
+export default ProductForm

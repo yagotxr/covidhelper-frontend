@@ -3,7 +3,7 @@ import '../../assets/scss/Form.scss'
 import covid from '../../assets/img/covid.png'
 import { FormGroup, Col, Form, Row, Input, Label, Button, Collapse, Navbar, NavbarToggler,
     NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu,
-    DropdownItem,NavbarText
+    DropdownItem
 } from 'reactstrap'
 
 
@@ -12,13 +12,13 @@ class ProductForm extends Component {
     render() {
         return (
             <div className="Body">
-                <Navbar color="dark" light expand="md">
+                <Navbar color="light" light expand="md">
                     <NavbarBrand href="/"><img alt="covid" src={covid} width="40px"/> covidhelper</NavbarBrand>
                     <NavbarToggler />
                     <Collapse navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                        <NavLink href="/">Lojas</NavLink>
+                        <NavLink href="/lojas">Lojas</NavLink>
                         </NavItem>
                         <NavItem>
                         <NavLink href="/">Espaço Kids</NavLink>
@@ -44,7 +44,6 @@ class ProductForm extends Component {
                         </DropdownMenu>
                         </UncontrolledDropdown>
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
                     </Collapse>
                 </Navbar>
                 <Form className = "Form">
@@ -93,7 +92,7 @@ class ProductForm extends Component {
                         </Col>
                         <Col md={4}>
                         <FormGroup>
-                            <Label for="addOn">Complemento</Label>
+                            <Label for="addOn" >Complemento</Label>
                             <Input type="text" name="addOn" id="addOn"/>
                         </FormGroup>
                         </Col>

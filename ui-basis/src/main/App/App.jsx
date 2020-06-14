@@ -18,10 +18,10 @@ class App extends Component {
                         <Nav className="mr-auto">
                         <Nav.Link href="#home">Home</Nav.Link>
                         <Nav.Link href="kids">Espaço Kids</Nav.Link>
+                        <Nav.Link href="yago">Yago</Nav.Link>
                         <NavDropdown title="Cadastro" id="basic-nav-dropdown">
                             <NavDropdown.Item href="lojas">Lojas</NavDropdown.Item>
                             <NavDropdown.Item href="produtos">Produtos</NavDropdown.Item>
-                            <NavDropdown.Item href="yago">Yago</NavDropdown.Item>
                         </NavDropdown>
                         </Nav>
                         <Form inline>

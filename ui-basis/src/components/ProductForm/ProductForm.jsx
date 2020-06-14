@@ -1,9 +1,6 @@
 import React, { Component} from 'react'
 import '../../assets/scss/Form.scss'
-import covid from '../../assets/img/covid.png'
-import { FormGroup, Col, Form, Row, Input, Label, Button, Collapse, Navbar, NavbarToggler,
-    NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu,
-    DropdownItem
+import { FormGroup, Col, Form, Row, Input, Label, Button
 } from 'reactstrap'
 
 
@@ -12,40 +9,6 @@ class ProductForm extends Component {
     render() {
         return (
             <div className="Body">
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/"><img alt="covid" src={covid} width="40px"/> covidhelper</NavbarBrand>
-                    <NavbarToggler />
-                    <Collapse navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                        <NavLink href="/lojas">Lojas</NavLink>
-                        </NavItem>
-                        <NavItem>
-                        <NavLink href="/">Espaço Kids</NavLink>
-                        </NavItem>
-                        <NavItem>
-                        <NavLink href="/">Notícias</NavLink>
-                        </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
-                        <DropdownToggle nav caret>
-                            Options
-                        </DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem>
-                            Option 1
-                            </DropdownItem>
-                            <DropdownItem>
-                            Option 2
-                            </DropdownItem>
-                            <DropdownItem divider />
-                            <DropdownItem>
-                            Reset
-                            </DropdownItem>
-                        </DropdownMenu>
-                        </UncontrolledDropdown>
-                    </Nav>
-                    </Collapse>
-                </Navbar>
                 <Form className = "Form">
                     <h4>Cadastro de produtos</h4>
                     <br/>

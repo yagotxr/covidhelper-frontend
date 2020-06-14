@@ -1,7 +1,5 @@
 import React, { Component} from 'react'
-import covid from '../../assets/img/covid.png'
-import { FormGroup, Col, Form, Row, Input, Label, Button, Collapse, Navbar, NavbarToggler,
-    NavbarBrand, Nav, NavItem, NavLink,NavbarText
+import { FormGroup, Col, Form, Row, Input, Label, Button
 } from 'reactstrap'
 
 import '../../assets/css/bootstrap.min.css';
@@ -11,28 +9,10 @@ class StoreForm extends Component {
     render() {
         return (
             <div >
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/"><img alt="covid" src={covid} width="40px"/> covidhelper</NavbarBrand>
-                    <NavbarToggler />
-                    <Collapse navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                        <NavLink href="/lojas">Lojas</NavLink>
-                        </NavItem>
-                        <NavItem>
-                        <NavLink href="/">Espaço Kids</NavLink>
-                        </NavItem>
-                        <NavItem>
-                        <NavLink href="/">Notícias</NavLink>
-                        </NavItem>
-                    </Nav>
-                    <NavbarText>Simple Text</NavbarText>
-                    </Collapse>
-                </Navbar>
                 <Form className = "Form">
                     <h4>Cadastro de loja</h4>
                     <br/>
-               <Row form>
+                    <Row form>
                         <Col md={6}>
                         <FormGroup>
                             <Label for="nome">Razão Social</Label>

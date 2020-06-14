@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 const links = [
-    { route: "/", label: "Home"},
-    { route: "/lojas", label: "Lojas"},
+    { route: "/" },
+    { route: "/lojas"},
 ];
 
 export class Menu extends Component {

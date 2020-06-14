@@ -1,42 +1,30 @@
 import React, { Component} from 'react'
-import '../../assets/scss/Form.scss'
-import { FormGroup, Col, Form, Row, Input, Label, Button
-} from 'reactstrap'
+
+import ReactPlayer from "react-player"
 
 
 class Kids extends Component {
     
     render() {
         return (
-            <div className="Body">
-                <Form className = "Form">
-                    <h4>Cadastro de produtos</h4>
-                    <br/>
-               <Row form>
-                        <Col md={6}>
-                        <FormGroup>
-                            <Label for="nome">Produto</Label>
-                            <Input type="text" name="name" id="Nome"/>
-                        </FormGroup>
-                        </Col>
-                        <Col md={2}>
-                        <FormGroup>
-                            <Label for="stock">Estoque</Label>
-                            <Input type="number" name="stock" id="stock"/>
-                        </FormGroup>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col md={6}>
-                        <FormGroup>
-                            <Label for="description">Descrição</Label>
-                            <Input type="textarea"  name="description" id="description"  />
-                        </FormGroup>
-                        </Col>
-                    </Row>
-                    <Button color="primary">Cadastrar</Button>
-                </Form>
-            </div>
+            <div id="wrapper">
+		        <div id="main">
+		            <div className="inner">
+                        <section id="banner">
+                            <div className="content">
+                            <header>
+                                <h2>Espaço Kids</h2>
+                                <hr />
+                                <p>Um espaço divertido e diferenciado com conteúdo informativo para as crianças sobre o novo coronavirus.</p>
+                            </header>
+                            <ReactPlayer url="https://www.youtube.com/watch?v=soAgZSIQnEY" controls={true}/>
+                            <ReactPlayer url="https://www.youtube.com/watch?v=95dacCCZanE" controls={true}/>
+                            <ReactPlayer url="https://www.youtube.com/watch?v=5rLGlL3sl9I" controls={true}/>
+                        </div>
+                    </section>
+                </div>
+      		</div>
+		</div>
         )
     }
 }

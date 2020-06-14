@@ -15,61 +15,23 @@ class ProductForm extends Component {
                <Row form>
                         <Col md={6}>
                         <FormGroup>
-                            <Label for="nome">Razão Social</Label>
+                            <Label for="nome">Produto</Label>
                             <Input type="text" name="name" id="Nome"/>
                         </FormGroup>
                         </Col>
-                        <Col md={6}>
+                        <Col md={2}>
                         <FormGroup>
-                            <Label for="cnpj">CNPJ</Label>
-                            <Input type="text" maxlength="14" name="cnpj" id="cnpj"  />
+                            <Label for="stock">Estoque</Label>
+                            <Input type="number" name="stock" id="stock"/>
                         </FormGroup>
                         </Col>
                     </Row>
-                    <Row form>
-                        <Col md={2}>
-                        <FormGroup>
-                            <Label for="zipCode">CEP</Label>
-                            <Input type="text" name="zipCode" id="zipCode"/>
-                        </FormGroup>
-                        </Col>
-                        <Col md={4}>
-                        <FormGroup>
-                            <Label for="city">Cidade</Label>
-                            <Input type="text" name="city" id="city"/>
-                        </FormGroup>
-                        </Col>
+                    <Row>
                         <Col md={6}>
                         <FormGroup>
-                            <Label for="street">Rua</Label>
-                            <Input type="text" name="street" id="street"/>
-                        </FormGroup>  
-                        </Col>
-                    </Row>
-                    <Row form>
-                        <Col md={4}>
-                        <FormGroup>
-                            <Label for="state">Estado</Label>
-                            <Input type="text" name="state" id="state"/>
+                            <Label for="description">Descrição</Label>
+                            <Input type="textarea"  name="description" id="description"  />
                         </FormGroup>
-                        </Col>
-                        <Col md={4}>
-                        <FormGroup>
-                            <Label for="addOn" >Complemento</Label>
-                            <Input type="text" name="addOn" id="addOn"/>
-                        </FormGroup>
-                        </Col>
-                        <Col md={2}>
-                        <FormGroup>
-                            <Label for="addressNumber">Número</Label>
-                            <Input type="text" name="addressNumber" id="addressNumber"/>
-                        </FormGroup>  
-                        </Col>
-                        <Col md={2}>
-                        <FormGroup>
-                            <Label for="phone">Telefone</Label>
-                            <Input type="text" maxlength="11" name="phone" id="phone"/>
-                        </FormGroup>  
                         </Col>
                     </Row>
                     <Button color="primary">Cadastrar</Button>

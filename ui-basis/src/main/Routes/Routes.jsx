@@ -8,6 +8,7 @@ import Login from '../../components/Login/Login';
 import Kids from '../../components/Kids/Kids';
 import KidsJogos from '../../components/KidsJogos/KidsJogos';
 import Yago from '../../components/Yago/Yago';
+import KidsAtividades from '../../components/KidsAtividades/KidsAtividades';
 
 export class Routes extends Component {
     render() {
@@ -21,6 +22,7 @@ export class Routes extends Component {
                     <Route path='/kids' component={Kids}/>
                     <Route path='/jogos' component={KidsJogos}/>
                     <Route path='/yago' component={Yago}/>
+                    <Route path='/atividades' component={KidsAtividades}/>
                     <Route component={NoMatch}></Route>
                 </Switch>
             </main>

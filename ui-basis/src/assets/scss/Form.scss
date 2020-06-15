@@ -3,3 +3,23 @@
     margin-right: 200px!important;
     margin-top: 60px!important;
 }
+
+
+.inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.content{
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+    background-repeat: repeat;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fpt%2Ffree-png-dhlsl&psig=AOvVaw2Rnu4A2PLyTo9rtPducE4X&ust=1592328129704000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPCLl9iqhOoCFQAAAAAdAAAAABAp");
+}
+

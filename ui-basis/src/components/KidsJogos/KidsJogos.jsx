@@ -25,7 +25,7 @@ class KidsJogos extends Component {
                                 </header>
                             <h3><img alt="covid" src={manete} width="70px"/> Jogos</h3>
                             <CardDeck>
-                                <Card style={{ width: '18rem' }}>
+                                <Card border="primary" style={{ width: '18rem' }}>
                                     <a href="http://www.escolagames.com.br/jogos/prevencaoCoronavirus/?deviceType=computer">
                                         <Card.Img variant="top" src={jogo} />
                                     </a>
@@ -36,7 +36,7 @@ class KidsJogos extends Component {
                                         </a>
                                     </Card.Body>
                                 </Card> {''}
-                                <Card style={{ width: '18rem' }}>
+                                <Card border="danger" style={{ width: '18rem' }}>
                                     <a href="http://www.multirio.rj.gov.br/index.php/interaja/jogos-educativos/15792-jogo-da-mem%C3%B3ria-rio-contra-o-corona">
                                         <Card.Img variant="top" src={jogo2} />
                                     </a>
@@ -47,7 +47,7 @@ class KidsJogos extends Component {
                                         </a>
                                     </Card.Body>
                                 </Card> {''}
-                                <Card style={{ width: '18rem' }}>
+                                <Card border="warning" style={{ width: '18rem' }}>
                                     <a href="http://www.multirio.rj.gov.br/index.php/interaja/jogos-educativos/15967-pode-n%C3%A3o-poder">
                                         <Card.Img variant="top" src={jogo3} />
                                     </a>

@@ -12,7 +12,7 @@ class Kids extends Component {
             <div id="wrapper">
 		        <div id="main">
 		            <div className="inner">
-                        <section id="banner">
+                        <section className="banner">
                             <div className="content">
                             <header>
                                 <h2>Espaço Kids</h2>
@@ -24,9 +24,11 @@ class Kids extends Component {
                                 <a href="/jogos">
                                     <Button variant="success" size="lg">Jogos</Button>
                                 </a>{' '}
-                                <Button variant="secondary" size="lg">
-                                Large button
-                                </Button>
+                                <a href="/atividades">
+                                    <Button variant="danger" size="lg">
+                                    Atividades
+                                    </Button>
+                                </a>
                             </div>
                             <h5>Você sabe o que é o Coronavirus?</h5>
                             <ReactPlayer url="https://www.youtube.com/watch?v=soAgZSIQnEY" controls={true}/>

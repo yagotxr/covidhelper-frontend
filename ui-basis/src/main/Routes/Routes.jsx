@@ -6,6 +6,7 @@ import ProductForm from '../../components/ProductForm/ProductForm';
 import NoMatch from '../../components/NoMatch/NoMatch';
 import Login from '../../components/Login/Login';
 import Kids from '../../components/Kids/Kids';
+import KidsJogos from '../../components/KidsJogos/KidsJogos';
 import Yago from '../../components/Yago/Yago';
 
 export class Routes extends Component {
@@ -18,6 +19,7 @@ export class Routes extends Component {
                     <Route path='/produtos' component={ProductForm}/>
                     <Route path='/login' component={Login}/>
                     <Route path='/kids' component={Kids}/>
+                    <Route path='/jogos' component={KidsJogos}/>
                     <Route path='/yago' component={Yago}/>
                     <Route component={NoMatch}></Route>
                 </Switch>

@@ -21,8 +21,9 @@ class Kids extends Component {
                             </header>
                             <img alt="corona" src={corona} />
                             <div className="mb-2">
-                                <Button variant="warning" size="lg"><a href="/jogos" >Jogos</a>
-                                </Button>{' '}
+                                <a href="/jogos">
+                                    <Button variant="success" size="lg">Jogos</Button>
+                                </a>{' '}
                                 <Button variant="secondary" size="lg">
                                 Large button
                                 </Button>

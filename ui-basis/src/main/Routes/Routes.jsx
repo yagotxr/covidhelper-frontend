@@ -9,6 +9,7 @@ import Kids from '../../components/Kids/Kids';
 import KidsJogos from '../../components/KidsJogos/KidsJogos';
 import Yago from '../../components/Yago/Yago';
 import KidsAtividades from '../../components/KidsAtividades/KidsAtividades';
+import FeedNews from '../../components/FeedNews/FeedNews';
 
 export class Routes extends Component {
     render() {
@@ -23,6 +24,7 @@ export class Routes extends Component {
                     <Route path='/jogos' component={KidsJogos}/>
                     <Route path='/yago' component={Yago}/>
                     <Route path='/atividades' component={KidsAtividades}/>
+                    <Route path='/noticias' component={FeedNews}/>
                     <Route component={NoMatch}></Route>
                 </Switch>
             </main>

@@ -1,26 +1,81 @@
-import React, { Component} from 'react'
-
-import '../../assets/scss/Form.scss'
-import facebook from '../../assets/img/facebook.png'
-import google from '../../assets/img/google.png'
-
+import React, { Component } from 'react';
+// import { Link, Redirect } from 'react-router-dom'
+import { GOOGLE_AUTH_URL } from '../../constants/index'
+import { Card, Button, Modal, Input, FormGroup } from 'reactstrap'
 
 class Login extends Component {
-    
+
+    constructor() {
+        super();
+        this.state = {
+            loginModal: false,
+        }
+    }
+
     render() {
         return (
-            <div className="Body">
-                <br/>
-                <br/>
-                <label>Realizar login com:</label>
-                <br/>
-                <a href="http:localhost:8080/api/oauth2/authorize/facebook?redirect_uri=http://localhost:3000/oauth2/redirect"><img alt="facebook" src={facebook} width="40px"/></a>
-                <a href="http:localhost:8080/api/oauth2/authorize/google?redirect_uri=http://localhost:3000/oauth2/redirect"><img alt="google" src={google} width="60px"/></a>
-                    
-            </div>
-        )
+            <>
+                <Button
+                    className="btn-round"
+                    color="primary"
+                    type="button"
+                    onClick={() => this.setState({ loginModal: true })}
+                >
+                    Login modal
+            </Button>
+                <Modal
+                    isOpen={this.state.loginModal}
+                    toggle={() => this.setState({ loginModal: false })}
+                    modalClassName="modal-register"
+                >
+                    <div className="modal-header no-border-header text-center">
+                        <button
+                            aria-label="Close"
+                            className="close"
+                            data-dismiss="modal"
+                            type="button"
+                            onClick={() => this.setState({ loginModal: false })}
+                        >
+                            <span aria-hidden={true}>×</span>
+                        </button>
+                        <h6 className="text-muted">Welcome</h6>
+                        <h3 className="modal-title text-center">Paper Kit</h3>
+                        <p>Log in to your account</p>
+                    </div>
+                    <div className="modal-body">
+                        <Button className="btn-round" color="primary" href={GOOGLE_AUTH_URL}>
+                            Login with Google
+                        </Button>
+                    </div>
+                    <div className="modal-footer no-border-footer">
+                        <span className="text-muted text-center">
+                            Looking{" "}
+                            <a href="#pablo" onClick={e => e.preventDefault()}>
+                                create an account
+                  </a>
+                  ?
+                </span>
+                    </div>
+                </Modal>
+            </>
+        );
     }
 }
-  
 
-export default Login
+
+{/* class SocialLogin extends Component {
+    render() {
+        return (
+            <div className="social-login">
+                <Card>
+                   <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}></a> 
+                </Card> 
+                
+            </div>
+        );
+    }
+} */}
+
+
+
+export default Login        

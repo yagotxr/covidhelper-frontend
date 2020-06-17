@@ -1,3 +1,4 @@
+
 import React, { Component} from 'react'
 
 import { Navbar, NavDropdown, Nav, Form} from 'react-bootstrap'
@@ -9,7 +10,7 @@ class NavBar extends Component {
         return(
             <div>
                 <Navbar bg="light" >
-                <Navbar.Brand><img alt="covid" src={covid} width="40px"/>CovidHelper</Navbar.Brand>
+                <Navbar.Brand href="home"><img alt="covid" src={covid} width="40px"/>CovidHelper</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

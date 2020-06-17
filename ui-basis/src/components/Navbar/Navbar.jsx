@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import covid from '../../assets/img/coronavirus.png'
 import Login from '../../components/Login/Login'
+
 import {
     UncontrolledCollapse,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    Form,
     UncontrolledDropdown,
     NavbarBrand,
     Navbar,
@@ -30,7 +30,7 @@ class NavBar extends Component {
         return (
             <Navbar color='danger' expand='lg' style={{ height: '70px' }} >
                 <Container>
-                    <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
+                    <NavbarBrand href="/">
                         <img src={covid} alt='CovidHelper Logo' width='40px' height='40px'></img>
                             CovidHelper
           </NavbarBrand>
@@ -47,18 +47,13 @@ class NavBar extends Component {
                     </button>
                     <UncontrolledCollapse navbar toggler="#navbarNavDropdown">
                         <Nav navbar>
-                            <NavItem className="active">
-                                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
-                                    Home <span className="sr-only">(current)</span>
-                                </NavLink>
-                            </NavItem>
                             <NavItem>
-                                <NavLink href="kids" onClick={e => e.preventDefault()}>
+                                <NavLink href="/kids" >
                                     Espaço Kids
                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                                <NavLink href="/noticias">
                                     Notícias
                 </NavLink>
                             </NavItem>
@@ -68,29 +63,24 @@ class NavBar extends Component {
                                     caret
                                     color="default"
                                     data-toggle="dropdown"
-                                    href="#pablo"
                                     id="navbarDropdownMenuLink"
                                     nav
-                                    onClick={e => e.preventDefault()}
                                 >
                                     Cadastro
                 </DropdownToggle>
                                 <DropdownMenu aria-labelledby="navbarDropdownMenuLink">
                                     <DropdownItem
-                                        href="#pablo"
-                                        onClick={e => e.preventDefault()}
+                                        href="lojas"
                                     >
                                         Lojas
                   </DropdownItem>
                                     <DropdownItem
-                                        href="#pablo"
-                                        onClick={e => e.preventDefault()}
+                                        href="produtos"
                                     >
                                         Produtos
                   </DropdownItem>
                                     <DropdownItem
-                                        href="#pablo"
-                                        onClick={e => e.preventDefault()}
+                                        href="medicos"
                                     >
                                         Médicos
                   </DropdownItem>

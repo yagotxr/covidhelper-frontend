@@ -2,9 +2,7 @@ import React, { Component} from 'react'
 import { 
 } from 'react-bootstrap'
 
-import '../../assets/css/bootstrap.min.css';
-
-class Yago extends Component {
+class Home extends Component {
     
     render() {
         return (
@@ -16,4 +14,4 @@ class Yago extends Component {
 }
   
 
-export default Yago
+export default Home

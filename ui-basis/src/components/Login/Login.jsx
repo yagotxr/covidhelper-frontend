@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Link, Redirect } from 'react-router-dom'
 import { GOOGLE_AUTH_URL } from '../../constants/index'
+import googleLogo from '../../assets/img/google.png'
 import { Card, Button, Modal, Input, FormGroup } from 'reactstrap'
 
 class Login extends Component {
@@ -10,6 +11,7 @@ class Login extends Component {
         this.state = {
             loginModal: false,
         }
+        this.googleLogoSize = '25px';
     }
 
     render() {
@@ -21,7 +23,7 @@ class Login extends Component {
                     type="button"
                     onClick={() => this.setState({ loginModal: true })}
                 >
-                    Login modal
+                    Login
             </Button>
                 <Modal
                     isOpen={this.state.loginModal}
@@ -43,18 +45,16 @@ class Login extends Component {
                         <p>Log in to your account</p>
                     </div>
                     <div className="modal-body">
-                        <Button className="btn-round" color="primary" href={GOOGLE_AUTH_URL}>
+                    
+                        <a href={GOOGLE_AUTH_URL}>
+                            <Card>
+                            <i><img src={googleLogo} 
+                            alt='Google Logo' 
+                            height={this.googleLogoSize}
+                            width={this.googleLogoSize}></img></i>
                             Login with Google
-                        </Button>
-                    </div>
-                    <div className="modal-footer no-border-footer">
-                        <span className="text-muted text-center">
-                            Looking{" "}
-                            <a href="#pablo" onClick={e => e.preventDefault()}>
-                                create an account
-                  </a>
-                  ?
-                </span>
+                        </Card> 
+                        </a>
                     </div>
                 </Modal>
             </>

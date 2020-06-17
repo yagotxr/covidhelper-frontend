@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-// import { Link, Redirect } from 'react-router-dom'
-import { GOOGLE_AUTH_URL } from '../../constants/index'
+
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL } from '../../constants/index'
 import { Button, Modal} from 'reactstrap'
+
+import google from '../../assets/img/google.png'
+import facebook from '../../assets/img/facebook.png'
 
 class Login extends Component {
 
@@ -21,7 +24,7 @@ class Login extends Component {
                     type="button"
                     onClick={() => this.setState({ loginModal: true })}
                 >
-                    Login modal
+                    Login
             </Button>
                 <Modal
                     isOpen={this.state.loginModal}
@@ -29,6 +32,7 @@ class Login extends Component {
                     modalClassName="modal-register"
                 >
                     <div className="modal-header no-border-header text-center">
+                        <h3 className="modal-title text-center">Login</h3>
                         <button
                             aria-label="Close"
                             className="close"
@@ -38,22 +42,21 @@ class Login extends Component {
                         >
                             <span aria-hidden={true}>×</span>
                         </button>
-                        <h6 className="text-muted">Welcome</h6>
-                        <h3 className="modal-title text-center">Paper Kit</h3>
-                        <p>Log in to your account</p>
                     </div>
                     <div className="modal-body">
-                        <Button className="btn-round" color="primary" href={GOOGLE_AUTH_URL}>
-                            Login with Google
+                        <Button className="btn-round" color="light" href={GOOGLE_AUTH_URL}>
+                            Login com Google <img alt="google" src={google} width="40px"/>
+                        </Button><br/><br/>
+                        <Button className="btn-round" color="light" href={FACEBOOK_AUTH_URL}>
+                            Login com Facebook <img alt="facebook" src={facebook} width="30px"/>
                         </Button>
                     </div>
                     <div className="modal-footer no-border-footer">
                         <span className="text-muted text-center">
-                            Looking{" "}
+                            Não tem cadastro?{" "}
                             <a href="#pablo" onClick={e => e.preventDefault()}>
-                                create an account
+                                Criar uma conta
                   </a>
-                  ?
                 </span>
                     </div>
                 </Modal>

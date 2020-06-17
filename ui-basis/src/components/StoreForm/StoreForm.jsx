@@ -2,8 +2,6 @@ import React, { Component} from 'react'
 import { FormGroup, Col, Form, Row, Input, Label, Button
 } from 'reactstrap'
 
-import '../../assets/css/bootstrap.min.css';
-
 class StoreForm extends Component {
     
     render() {

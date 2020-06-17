@@ -3,14 +3,13 @@ import {BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from '../Routes/Routes';
 import Menu from '../Menu/Menu';
-import covid from '../../assets/img/covid.png'
-
-import { Navbar, NavDropdown, Nav, Form} from 'react-bootstrap'
+import Navbar from '../../components/Navbar/Navbar'
 
 class App extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
                 <Navbar bg="light" >
                     <Navbar.Brand><img alt="covid" src={covid} width="40px"/>CovidHelper</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -29,6 +28,9 @@ class App extends Component {
                         </Form>
                     </Navbar.Collapse>
                     </Navbar>
+=======
+                <Navbar />
+>>>>>>> fc8f59781f7aa78be8b5ccfca38adce20df4fed3
                 <Router>
                     <div>
                         <Menu/>

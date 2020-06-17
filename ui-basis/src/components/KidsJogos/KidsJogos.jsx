@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 
-import { Button, Card, CardDeck } from 'reactstrap'
+import { Button, Card, CardDeck } from 'react-bootstrap'
 import '../../assets/scss/Form.scss'
 import jogo from '../../assets/img/jogo1.png'
 import jogo2 from '../../assets/img/jogo.png'

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 // import { Link, Redirect } from 'react-router-dom'
 import { GOOGLE_AUTH_URL } from '../../constants/index'
-<<<<<<< HEAD
-import { Card, Button, Modal, Input, FormGroup } from 'reactstrap'
-=======
 import { Button, Modal} from 'reactstrap'
->>>>>>> Isolado navbar
 
 class Login extends Component {
 
@@ -66,23 +62,6 @@ class Login extends Component {
     }
 }
 
-
-<<<<<<< HEAD
-{/* class SocialLogin extends Component {
-    render() {
-        return (
-            <div className="social-login">
-                <Card>
-                   <a className="btn btn-block social-btn google" href={GOOGLE_AUTH_URL}></a> 
-                </Card> 
-                
-            </div>
-        );
-    }
-} */}
-
-=======
->>>>>>> Isolado navbar
 
 
 export default Login        

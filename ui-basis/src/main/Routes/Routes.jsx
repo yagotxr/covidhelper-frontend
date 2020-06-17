@@ -6,7 +6,6 @@ import ProductForm from '../../components/ProductForm/ProductForm';
 import NoMatch from '../../components/NoMatch/NoMatch';
 import Kids from '../../components/Kids/Kids';
 import KidsJogos from '../../components/KidsJogos/KidsJogos';
-import Yago from '../../components/Yago/Yago';
 import KidsAtividades from '../../components/KidsAtividades/KidsAtividades';
 import FeedNews from '../../components/FeedNews/FeedNews';
 
@@ -20,7 +19,6 @@ export class Routes extends Component {
                     <Route path='/produtos' component={ProductForm}/>
                     <Route path='/kids' component={Kids}/>
                     <Route path='/jogos' component={KidsJogos}/>
-                    <Route path='/yago' component={Yago}/>
                     <Route path='/atividades' component={KidsAtividades}/>
                     <Route path='/noticias' component={FeedNews}/>
                     <Route component={NoMatch}></Route>

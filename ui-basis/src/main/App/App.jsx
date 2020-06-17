@@ -3,12 +3,17 @@ import {BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from '../Routes/Routes';
 import Menu from '../Menu/Menu';
+<<<<<<< HEAD
 import Navbar from '../../components/Navbar/Navbar'
+=======
+import Navbar from '../../components/Navbar/Navbar';
+>>>>>>> Isolado navbar
 
 class App extends Component {
     render() {
         return (
             <div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <Navbar bg="light" >
                     <Navbar.Brand><img alt="covid" src={covid} width="40px"/>CovidHelper</Navbar.Brand>
@@ -31,6 +36,9 @@ class App extends Component {
 =======
                 <Navbar />
 >>>>>>> fc8f59781f7aa78be8b5ccfca38adce20df4fed3
+=======
+                <Navbar/>
+>>>>>>> Isolado navbar
                 <Router>
                     <div>
                         <Menu/>

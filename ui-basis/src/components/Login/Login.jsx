@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 // import { Link, Redirect } from 'react-router-dom'
 import { GOOGLE_AUTH_URL } from '../../constants/index'
+<<<<<<< HEAD
 import { Card, Button, Modal, Input, FormGroup } from 'reactstrap'
+=======
+import { Button, Modal} from 'reactstrap'
+>>>>>>> Isolado navbar
 
 class Login extends Component {
 
@@ -63,6 +67,7 @@ class Login extends Component {
 }
 
 
+<<<<<<< HEAD
 {/* class SocialLogin extends Component {
     render() {
         return (
@@ -76,6 +81,8 @@ class Login extends Component {
     }
 } */}
 
+=======
+>>>>>>> Isolado navbar
 
 
 export default Login        

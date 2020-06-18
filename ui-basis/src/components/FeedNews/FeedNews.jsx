@@ -31,7 +31,7 @@ class FeedNews extends Component {
                         <section className="banner">
                             <div className="content">
                             <header>
-                                <h2>Noticias</h2>
+                                <h2>Notícias</h2>
                                 <hr />
                                 <center>
                                 <img alt="corona"  widht="400px" height="300px" src={corona} /></center>

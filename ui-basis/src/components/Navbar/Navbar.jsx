@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import covid from '../../assets/img/covid.png'
+import covid from '../../assets/img/virus2.png'
 import Login from '../../components/Login/Login'
 import {
     UncontrolledCollapse, DropdownToggle, DropdownMenu, DropdownItem,
@@ -22,8 +22,8 @@ class NavBar extends Component {
         return (
             <Navbar color='dark' expand='lg' style={{ height: '70px' }} >
                 <Container>
-                    <NavbarBrand href="/home" onClick={e => e.preventDefault()}>
-                        <img src={covid} alt='CovidHelper Logo' width='40px' height='40px'></img>
+                    <NavbarBrand href="/home" >
+                        <img src={covid} alt='CovidHelper Logo' width='70px' height='70px'></img>
                             CovidHelper
                     </NavbarBrand>
                     <button

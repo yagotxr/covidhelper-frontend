@@ -20,7 +20,7 @@ class Login extends Component {
             <>
                 <Button
                     className="btn-round"
-                    color="primary"
+                    color="dark"
                     type="button"
                     onClick={() => this.setState({ loginModal: true })}
                 >

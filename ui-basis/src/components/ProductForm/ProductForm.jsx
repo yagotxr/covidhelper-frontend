@@ -34,7 +34,7 @@ class ProductForm extends Component {
                         </FormGroup>
                         </Col>
                     </Row>
-                    <Button color="primary">Cadastrar</Button>
+                    <Button className="btn-round" color="primary">Cadastrar</Button>
                 </Form>
             </div>
         )

@@ -9,6 +9,7 @@ import KidsJogos from '../../components/KidsJogos/KidsJogos';
 import KidsAtividades from '../../components/KidsAtividades/KidsAtividades';
 import FeedNews from '../../components/FeedNews/FeedNews';
 import Home from '../../components/Home/Home';
+import AuthRedirectHandler from '../../components/AuthRedirectHandler/AuthRedirectHandler';
 
 export class Routes extends Component {
     render() {
@@ -23,6 +24,7 @@ export class Routes extends Component {
                     <Route path='/atividades' component={KidsAtividades}/>
                     <Route path='/noticias' component={FeedNews}/>
                     <Route path='/home' component={Home}/>
+                    <Route path='/oauth2/redirect' component={AuthRedirectHandler}/>
                     <Route component={NoMatch}></Route>
                 </Switch>
             </main>

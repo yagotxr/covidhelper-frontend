@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 import covid from '../../assets/img/virus2.png'
 import Login from '../../components/Login/Login'
 import {
-    UncontrolledCollapse, DropdownToggle, DropdownMenu, DropdownItem,
-    UncontrolledDropdown, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container
+    UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container
 } from 'reactstrap'
 
 

@@ -25,7 +25,12 @@ class Login extends Component {
                     className="btn-round"
                     color="dark"
                     type="button"
-                    onClick={() => this.setState({ loginModal: true })}
+                    onClick={
+                        () => {
+                            console.log(this.state);
+                            this.setState({ loginModal: true, userLogged: isAccessTokenAvailable() })
+                        }
+                    }
                 >
                     Login
             </Button>

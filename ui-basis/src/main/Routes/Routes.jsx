@@ -16,7 +16,7 @@ export class Routes extends Component {
         return (
             <main className="container">
                 <Switch>
-                    <Route exact path='/' component={StoreForm}/>
+                    <Route exact path='/' component={Home}/>
                     <Route path='/lojas' component={StoreForm}/>
                     <Route path='/produtos' component={ProductForm}/>
                     <Route path='/kids' component={Kids}/>

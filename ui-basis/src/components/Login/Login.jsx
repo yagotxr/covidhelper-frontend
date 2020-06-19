@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL } from '../../constants/index'
-import { Button, Modal} from 'reactstrap'
+import { Button, Modal } from 'reactstrap'
 
 import google from '../../assets/img/google.png'
 import facebook from '../../assets/img/facebook.png'
+import { isAccessTokenAvailable } from '../../utils/authentication';
 
 class Login extends Component {
 
@@ -12,8 +13,10 @@ class Login extends Component {
         super();
         this.state = {
             loginModal: false,
+            userLogged: isAccessTokenAvailable()
         }
     }
+
 
     render() {
         return (
@@ -42,23 +45,26 @@ class Login extends Component {
                         >
                             <span aria-hidden={true}>×</span>
                         </button>
+                        {}
                     </div>
-                    <div className="modal-body">
-                        <Button className="btn-round" color="light" href={GOOGLE_AUTH_URL}>
-                            Login com Google <img alt="google" src={google} width="40px"/>
-                        </Button><br/><br/>
-                        <Button className="btn-round" color="light" href={FACEBOOK_AUTH_URL}>
-                            Login com Facebook <img alt="facebook" src={facebook} width="30px"/>
-                        </Button>
-                    </div>
-                    <div className="modal-footer no-border-footer">
-                        <span className="text-muted text-center">
-                            Não tem cadastro?{" "}
-                            <a href="#pablo" onClick={e => e.preventDefault()}>
-                                Criar uma conta
-                  </a>
-                </span>
-                    </div>
+
+                    {!this.state.userLogged ?
+                        <div className="modal-body">
+                            <Button className="btn-round" color="light" href={GOOGLE_AUTH_URL}>
+                                Login com Google <img alt="google" src={google} width="40px" />
+                            </Button><br /><br />
+                            <Button className="btn-round" color="light" href={FACEBOOK_AUTH_URL}>
+                                Login com Facebook <img alt="facebook" src={facebook} width="30px" />
+                            </Button>
+                        </div>
+                        :
+                        <div><Button className="btn-round" color="light" href='/lojas'>
+                            Cadastrar Loja
+                    </Button><br /><br />
+                            <Button className="btn-round" color="light" href='/produtos'>
+                                Cadastrar Produto
+                    </Button><br /><br /></div>
+                    }
                 </Modal>
             </>
         );

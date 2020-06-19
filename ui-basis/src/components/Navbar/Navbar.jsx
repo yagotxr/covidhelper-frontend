@@ -45,22 +45,6 @@ class NavBar extends Component {
                             <NavItem>
                                 <NavLink href="/noticias">Notícias</NavLink>
                             </NavItem>
-                            <UncontrolledDropdown nav>
-                                <DropdownToggle
-                                    aria-haspopup={true}
-                                    caret
-                                    color="default"
-                                    data-toggle="dropdown"
-                                    id="navbarDropdownMenuLink"
-                                    nav
-                                >
-                                    Cadastro
-                                </DropdownToggle>
-                                <DropdownMenu aria-labelledby="navbarDropdownMenuLink">
-                                    <DropdownItem href="lojas">Lojas</DropdownItem>
-                                    <DropdownItem href="produtos">Produtos</DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
                         </Nav>
                         <div className="ml-auto"> 
                             <Login/>

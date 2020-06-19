@@ -1,3 +1,5 @@
+import { ACCESS_TOKEN } from "../constants";
+
 export const b64DecodeUnicode = (str) => decodeURIComponent(
     atob(str)
       .split('')
@@ -28,3 +30,5 @@ export const isAccessTokenValid = (token) => {
   } = parseJwt(token);
   return exp >= new Date().getTime() / 1000;
 };
+
+export const logout = () => localStorage.removeItem(ACCESS_TOKEN);

@@ -5,7 +5,7 @@ import { Button, Modal } from 'reactstrap'
 
 import google from '../../assets/img/google.png'
 import facebook from '../../assets/img/facebook.png'
-import { isAccessTokenAvailable } from '../../utils/authentication';
+import { isAccessTokenAvailable, logout } from '../../utils/authentication';
 
 class Login extends Component {
 
@@ -20,7 +20,7 @@ class Login extends Component {
 
     render() {
         return (
-            <>
+            <div>
                 <Button
                     className="btn-round"
                     color="dark"
@@ -32,7 +32,7 @@ class Login extends Component {
                         }
                     }
                 >
-                    Login
+                    Conta
             </Button>
                 <Modal
                     isOpen={this.state.loginModal}
@@ -54,7 +54,7 @@ class Login extends Component {
                     </div>
 
                     {!this.state.userLogged ?
-                        <div className="modal-body">
+                        <div className="modal-body" style={{ position: 'center' }}>
                             <Button className="btn-round" color="light" href={GOOGLE_AUTH_URL}>
                                 Login com Google <img alt="google" src={google} width="40px" />
                             </Button><br /><br />
@@ -63,15 +63,23 @@ class Login extends Component {
                             </Button>
                         </div>
                         :
-                        <div><Button className="btn-round" color="light" href='/lojas'>
-                            Cadastrar Loja
+                        <div style={{
+                            padding: '15px 20px'
+                        }}>
+                            <Button className="btn-round" color="light" href='/lojas'>
+                                Cadastrar Loja
                     </Button><br /><br />
                             <Button className="btn-round" color="light" href='/produtos'>
                                 Cadastrar Produto
-                    </Button><br /><br /></div>
+                    </Button><br /><br />
+                            <Button className="btn-round" color="light" href='/home'
+                            onClick={logout}>
+                                Sair
+                    </Button>
+                        </div>
                     }
                 </Modal>
-            </>
+            </div >
         );
     }
 }

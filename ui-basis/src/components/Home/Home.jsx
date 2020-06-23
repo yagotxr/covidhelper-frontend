@@ -10,19 +10,27 @@ import axios from 'axios';
 
 class Home extends Component {
 
-    state = {
-        dados: []
-    }
+    constructor(props){
+        super(props)
 
+        this.state = {
+            dados: []
+        }
+    }
+    
     componentDidMount() {
         axios.get('http://localhost:8080/api/informations?state=DF')
-          .then(res => {
-            const dados = res.data;
-            this.setState({ dados });
+          .then(response => {
+            console.log(response)
+            this.setState({'dados': response.data})
+          })
+          .catch(error => {
+              console.log(error)
           })
       }
 
     render() {
+        const { dados } = this.state
         return (
             <div>
                 <Card color="light" style={{  width: '30rem', height: '20rem'}}>
@@ -71,16 +79,26 @@ class Home extends Component {
                             </InputGroup>
                             <br/>
                             <Label>Região: </Label>{' '}
-                            <Label value="regiao">{this.state.dados.map(dado => {dados.name})}</Label>
+                            <Label value="regiao">
+                                {
+                                    dados.map(dado => <div>{dado.regiao}</div>)
+                                }
+                            </Label>
                             <br/>
                             <Label>Município: </Label>{' '}
-                            <Label value="municipio">teste</Label>
+                            <Label value="municipio">{
+                                    dados.map(dado => <div>{dado.municipio}</div>)
+                                }</Label>
                             <br/>
                             <Label>Casos confirmados: </Label>{' '}
-                            <Label value="casos">teste</Label>
+                            <Label value="casos">{
+                                    dados.map(dado => <div>{dado.casosAcumulado}</div>)
+                                }</Label>
                             <br/>
                             <Label>Mortes confirmadas: </Label>{' '}
-                            <Label value="mortes">teste</Label>
+                            <Label value="mortes">{
+                                    dados.map(dado => <div>{dado.obitosAcumulado}</div>)
+                                }</Label>
 
                                 
                             

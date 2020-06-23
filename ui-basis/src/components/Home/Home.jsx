@@ -1,12 +1,27 @@
 import React, { Component} from 'react'
+
 import '../../assets/scss/Form.scss'
-import { Card, CardBody, CardTitle, Input, CardHeader, 
+import { 
+    Card, CardBody, CardTitle, Input, CardHeader, 
     InputGroup, InputGroupAddon, Label, InputGroupText, Button
 } from 'reactstrap';
+import axios from 'axios';
 
 
 class Home extends Component {
-    
+
+    state = {
+        dados: []
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:8080/api/informations?state=DF')
+          .then(res => {
+            const dados = res.data;
+            this.setState({ dados });
+          })
+      }
+
     render() {
         return (
             <div>
@@ -56,7 +71,7 @@ class Home extends Component {
                             </InputGroup>
                             <br/>
                             <Label>Região: </Label>{' '}
-                            <Label value="regiao">teste</Label>
+                            <Label value="regiao">{this.state.dados.map(dado => {dados.name})}</Label>
                             <br/>
                             <Label>Município: </Label>{' '}
                             <Label value="municipio">teste</Label>

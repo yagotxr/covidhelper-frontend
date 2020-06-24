@@ -5,8 +5,6 @@ import {
     Card, CardBody, CardTitle,CardHeader, Label
 } from 'reactstrap';
 import axios from 'axios';
-import Map from '../Map/Map';
-
 
 class Home extends Component {
 
@@ -14,7 +12,8 @@ class Home extends Component {
         super(props)
 
         this.state = {
-            dados: []
+            dados: [],
+            localizacao: []
         }
     }
     
@@ -27,12 +26,21 @@ class Home extends Component {
           .catch(error => {
               console.log(error)
           })
+        
+          this.getLocal()
     }
+
+    getLocal(){
+        navigator.geolocation.getCurrentPosition( location => {
+            console.log(location);
+        });
+    }
+    
 
     render() {
         const { dados } = this.state
         return (
-            <div>
+            <div url={this.state.localizacao}>
                 <Card color="light" style={{  width: '30rem', height: '17rem'}}>
                     <CardHeader >
                         <CardTitle >
@@ -70,7 +78,6 @@ class Home extends Component {
                                 }</Label>
                     </CardBody>
                 </Card>
-                <Map></Map>
             </div>
         )
     }

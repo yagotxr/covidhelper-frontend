@@ -8,7 +8,6 @@ import axios from 'axios';
 
 
 class Home extends Component {
-
     
     constructor(props){
         super(props)
@@ -16,43 +15,47 @@ class Home extends Component {
         this.state = {
             dados: [],
             longitude: [],
-            latitude: []
+            latitude: [],
+            cidade:[]
         }
     }
     
     componentDidMount() {
-        axios.get('http://localhost:8080/api/informations?state=DF')
-          .then(response => {
-            console.log(response)
-            this.setState({'dados': response.data})
-          })
-          .catch(error => {
-              console.log(error)
-          })
-        
         this.getLocal()
     }
 
-    
     getLocal(){
         navigator.geolocation.getCurrentPosition( location => {
             console.log(location.coords)
             this.setState({'longitude': location.coords.longitude, 'latitude': location.coords.latitude})
+            
+            axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {params: {latitude: this.state.latitude ,longitude: this.state.longitude , localityLanguage:'ptF'}})
+            .then(response => {
+                this.setState({'cidade': response.data.city})
+                axios.get('http://localhost:8080/api/informations',  {params: {city: this.state.cidade}})
+                .then(response => {
+                    console.log(response)
+                    this.setState({'dados': response.data})
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
         });
     }
-    
 
     render() {
-        const { longitude, latitude, dados } = this.state
+        const { dados, cidade } = this.state
         return (
-            <div url={longitude}>
+            <div >
                 <br/>
-            
-
                 <Card color="light" style={{  width: '30rem', height: '15rem'}}>
                     <CardHeader >
                         <CardTitle >
-                            NÚMERO DE CASOS POR ESTADO 
+                            Número de casos em {cidade}
                         </CardTitle>
                     </CardHeader>
                     <CardBody>

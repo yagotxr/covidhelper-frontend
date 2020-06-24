@@ -6,14 +6,17 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 
+
 class Home extends Component {
 
+    
     constructor(props){
         super(props)
 
         this.state = {
             dados: [],
-            localizacao: []
+            longitude: [],
+            latitude: []
         }
     }
     
@@ -27,21 +30,26 @@ class Home extends Component {
               console.log(error)
           })
         
-          this.getLocal()
+        this.getLocal()
     }
 
+    
     getLocal(){
         navigator.geolocation.getCurrentPosition( location => {
-            console.log(location);
+            console.log(location.coords)
+            this.setState({'longitude': location.coords.longitude, 'latitude': location.coords.latitude})
         });
     }
     
 
     render() {
-        const { dados } = this.state
+        const { longitude, latitude, dados } = this.state
         return (
-            <div url={this.state.localizacao}>
-                <Card color="light" style={{  width: '30rem', height: '17rem'}}>
+            <div url={longitude}>
+                <br/>
+            
+
+                <Card color="light" style={{  width: '30rem', height: '15rem'}}>
                     <CardHeader >
                         <CardTitle >
                             NÚMERO DE CASOS POR ESTADO 
@@ -49,33 +57,25 @@ class Home extends Component {
                     </CardHeader>
                     <CardBody>
                             <Label>Região: </Label>{' '}
-                            <Label value="regiao">
-                                {
-                                    dados.map(dado => <div>{dado.regiao}</div>)
-                                }
-                            </Label>
-                            <br/>
-                            <Label>Cidade: </Label>{' '}
-                            <Label value="cidade">
-                                {
-                                    dados.map(dado => <div>{dado.cidade}</div>)
-                                }
+                            <Label value="regiao">{
+                                dados.map(dado => <div>{dado.regiao}</div>)
+                            }
                             </Label>
                             <br/>
                             <Label>Município: </Label>{' '}
                             <Label value="municipio">{
                                     dados.map(dado => <div>{dado.municipio}</div>)
-                                }</Label>
+                            }</Label>
                             <br/>
                             <Label>Casos confirmados: </Label>{' '}
                             <Label value="casos">{
                                     dados.map(dado => <div>{dado.casosAcumulado}</div>)
-                                }</Label>
+                            }</Label>
                             <br/>
                             <Label>Mortes confirmadas: </Label>{' '}
                             <Label value="mortes">{
                                     dados.map(dado => <div>{dado.obitosAcumulado}</div>)
-                                }</Label>
+                            }</Label>
                     </CardBody>
                 </Card>
             </div>

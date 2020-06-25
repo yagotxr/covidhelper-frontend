@@ -6,7 +6,6 @@ import { Button, Modal } from 'reactstrap'
 import google from '../../assets/img/google.png'
 import facebook from '../../assets/img/facebook.png'
 import { isAccessTokenAvailable, logout } from '../../utils/authentication';
-
 class Login extends Component {
 
     constructor() {
@@ -16,7 +15,6 @@ class Login extends Component {
             userLogged: isAccessTokenAvailable()
         }
     }
-
 
     render() {
         return (

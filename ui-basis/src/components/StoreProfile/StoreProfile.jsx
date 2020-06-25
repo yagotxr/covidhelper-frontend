@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { } from '../../utils/authentication';
 import axios from 'axios';
 import { API_BASE_URL, ACCESS_TOKEN } from '../../constants';
+import { Products } from '../Products';
+import Login from '../Login/Login'
 
 class StoreProfile extends Component {
     constructor() {
@@ -30,12 +32,13 @@ class StoreProfile extends Component {
             <div class='wrapper'>
                 <h1>Minhas Lojas</h1>
                 <br/>
+                {console.log(this.state)}
                 {this.state.stores.map(store =>
                     <Card style={{ width: '18rem' }}>
                         <Card.Body>
                         <Card.Title>{store.name}</Card.Title>
                         <br/>
-                        <Button variant="primary" href='/produtos'>Ver Produtos</Button>
+                        <Products store={store} />
                         </Card.Body>
                     </Card>
                 )}

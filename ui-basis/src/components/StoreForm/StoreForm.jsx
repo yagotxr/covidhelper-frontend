@@ -73,13 +73,16 @@ class StoreForm extends Component {
             }
         })
         .then((res) => console.log(res.status))
-        .catch(err => console.log(err));
+        .catch(err => window.alert(err.message));
     }
 
     render() {
         return (
             <div >
-                <Form onSubmit={this.handleSubmit} className="Form">
+                <Form onSubmit={(e) => {
+                    e.preventDefault();
+                    this.handleSubmit()
+                }} className="Form">
                     <h4>Cadastro de loja</h4>
                     <br />
                     <Row form>

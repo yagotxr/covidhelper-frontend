@@ -77,7 +77,6 @@ class ProductForm extends Component {
                             </Card.Body>
                         </Card>
                     </div>
-
                     :
                     <Form className="Form" onSubmit={(e) => { e.preventDefault(); this.handleSubmit() }}>
                         <h4>Cadastro de produtos</h4>
@@ -122,7 +121,6 @@ class ProductForm extends Component {
                         <Button type='submit' className="btn-round" color="primary">Cadastrar</Button>
                     </Form>
                 }
-
             </div>
         )
     }

@@ -37,7 +37,7 @@ class Products extends Component {
     render() {
         return (
             <>
-                <Button onClick={() => this.setLgShow(true)}>Large modal</Button>
+                <Button onClick={() => this.setLgShow(true)}>Detalhes</Button>
                 <Modal
                     size="lg"
                     show={this.state.lgShow}

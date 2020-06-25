@@ -14,7 +14,6 @@ class App extends Component {
                 <Navbar/>
                 <Router>
                     <div>
-                        <Menu/>
                         <Routes/>
                     </div>
                 </Router>

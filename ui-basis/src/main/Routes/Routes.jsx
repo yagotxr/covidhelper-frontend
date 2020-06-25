@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
 import StoreForm from '../../components/StoreForm/StoreForm';
+import StoreProfile from '../../components/StoreProfile/StoreProfile';
 import ProductForm from '../../components/ProductForm/ProductForm';
 import NoMatch from '../../components/NoMatch/NoMatch';
 import Kids from '../../components/Kids/Kids';
@@ -18,6 +19,7 @@ export class Routes extends Component {
                 <Switch>
                     <Route exact path='/' component={Home}/>
                     <Route path='/lojas' component={StoreForm}/>
+                    <Route path='/minhasLojas' component={StoreProfile}/>
                     <Route path='/produtos' component={ProductForm}/>
                     <Route path='/kids' component={Kids}/>
                     <Route path='/jogos' component={KidsJogos}/>

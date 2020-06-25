@@ -68,12 +68,16 @@ class Login extends Component {
                         }}>
                             <Button className="btn-round" color="light" href='/lojas'>
                                 Cadastrar Loja
-                    </Button><br /><br />
-                            <Button className="btn-round" color="light" href='/produtos'>
-                                Cadastrar Produto
-                    </Button><br /><br />
+                            </Button>
+                            <br /><br />
+
+                            <Button className="btn-round" color="light" href='/minhasLojas'>
+                                Minhas Lojas
+                            </Button>
+                            <br /><br />
+
                             <Button className="btn-round" color="light" href='/home'
-                            onClick={logout}>
+                                onClick={logout}>
                                 Sair
                     </Button>
                         </div>

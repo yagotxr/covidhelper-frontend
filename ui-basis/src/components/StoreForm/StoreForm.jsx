@@ -40,7 +40,9 @@ class StoreForm extends Component {
     }
 
     searchCnpj() {
-        axios.get(`https://api.cnpja.com.br/companies/${this.state.cnpj}`, {
+        let cnpj = this.state.cnpj;
+        cnpj = cnpj.replace(/[.-]/g, '')
+        axios.get(`https://api.cnpja.com.br/companies/${cnpj}`, {
             headers: {
                 "authorization": "a2439a81-13a4-43a4-b417-f775b3b2f314-d2228977-0880-4227-bb3b-4378c138809c"
             }
@@ -65,7 +67,13 @@ class StoreForm extends Component {
 
 
     handleSubmit(e) {
-
+        axios.post(`${API_BASE_URL}/account/stores`, this.state, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
+            }
+        })
+        .then((res) => console.log(res.status))
+        .catch(err => console.log(err));
     }
 
     render() {
@@ -78,7 +86,9 @@ class StoreForm extends Component {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="nome">Razão Social</Label>
-                                <Input type="text"
+                                <Input
+                                    disabled
+                                    type="text"
                                     value={this.state.name}
                                     name="name" id="name" />
                             </FormGroup>
@@ -87,7 +97,7 @@ class StoreForm extends Component {
                             <FormGroup>
                                 <div>
                                     <Label for="cnpj">CNPJ</Label>
-                                    <Input type="text" maxlength="14" name="cnpj" id="cnpj"
+                                    <Input type="text" maxLength="20" name="cnpj" id="cnpj"
                                         value={this.state.cnpj}
                                         onChange={this.handleChange} />
                                     <Button id='btn-buscar' onClick={this.searchCnpj}>Buscar</Button>
@@ -100,7 +110,7 @@ class StoreForm extends Component {
                             <FormGroup>
                                 <Label for="zipCode">CEP</Label>
                                 <Input disabled type="text" name="zipCode" id="zipCode"
-                                    value={this.state.zipcode} />
+                                    value={this.state.zipCode} />
                             </FormGroup>
                         </Col>
                         <Col md={4}>
@@ -142,8 +152,8 @@ class StoreForm extends Component {
                         </Col>
                         <FormGroup>
                             <Label for="phone">Contatos</Label>
-                            <Input disabled type="text" maxlength="11" name="phoneNumbers" id="phone"
-                                value={this.state.phoneNumbers} readonly />
+                            <Input disabled type="text" maxLength="50" name="phoneNumbers" id="phone"
+                                value={this.state.phoneNumbers} />
                         </FormGroup>
                     </Row>
                     <Button type='submit' color="primary">Cadastrar</Button>

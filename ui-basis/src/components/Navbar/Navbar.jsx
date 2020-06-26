@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import covid from '../../assets/img/virus2.png'
+import covid from '../../assets/img/coronavirus.png'
 import Login from '../../components/Login/Login'
 import {
-    UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container
-} from 'reactstrap'
+    Navbar, NavDropdown, Nav
+} from 'react-bootstrap'
 
 
 class NavBar extends Component {
@@ -19,38 +19,29 @@ class NavBar extends Component {
     render() {
 
         return (
-            <Navbar color='dark' expand='lg' style={{ height: '70px' }} >
-                <Container>
-                    <NavbarBrand href="/home" >
-                        <img src={covid} alt='CovidHelper Logo' width='70px' height='70px'></img>
-                            CovidHelper
-                    </NavbarBrand>
-                    <button
-                        className="navbar-toggler"
-                        id="navbarNavDropdown"
-                        type="button"
-                        onClick={() => {
-                            document.documentElement.classList.toggle("nav-open");
-                            this.setState({ bodyClick: true });
-                        }}
-                    >
-                        <span className="navbar-toggler-icon" />
-                    </button>
-                    <UncontrolledCollapse navbar toggler="#navbarNavDropdown">
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink href="/kids">Espaço Kids</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink href="/noticias">Notícias</NavLink>
-                            </NavItem>
-                        </Nav>
-                        <div className="ml-auto"> 
-                            <Login/>
-                        </div>
-                    </UncontrolledCollapse>
-                </Container>
-            </Navbar >
+            <Navbar bg="light" expand="lg" style={{ padding: '20px 100px 20px 100px' }}>
+                <Navbar.Brand href="/home">
+                    <img
+                        src={covid}
+                        width="60"
+                        height="60"
+                        className="d-inline-block"
+                        alt="Covid Helper"
+                    />{' '}
+                </Navbar.Brand>
+                <Navbar.Brand href="/home" style={{paddingBottom: '9px'}}>
+                    Covid Helper
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mr-auto">
+                        <Nav.Link href="/kids">Espaço Kids</Nav.Link>
+                        <Nav.Link href="/noticias">Notícias</Nav.Link>
+                        <Nav.Link href="/nomatch">Produtos</Nav.Link>
+                    </Nav>
+                    <Login />
+                </Navbar.Collapse>
+            </Navbar>
         );
 
     }

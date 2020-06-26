@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Table, Modal, Button } from 'react-bootstrap';
 import { API_BASE_URL, ACCESS_TOKEN } from '../../constants';
 import axios from 'axios';
-import deleteIcon from '../../assets/img/delete-icon.png';
-
 
 class Products extends Component {
     constructor() {

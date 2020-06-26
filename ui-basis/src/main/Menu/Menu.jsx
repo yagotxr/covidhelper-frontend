@@ -4,6 +4,12 @@ import {Link} from 'react-router-dom';
 const links = [
     { route: "/" },
     { route: "/lojas"},
+    { route: "/noticias"},
+    { route: "/kids"},
+    { route: "/atividades"},
+    { route: "/jogos"},
+    { route: "/produtos"},
+    { route: "/home"},
 ];
 
 export class Menu extends Component {

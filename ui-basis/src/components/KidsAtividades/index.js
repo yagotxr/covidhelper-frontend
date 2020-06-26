@@ -1,1 +1,1 @@
-export {default as KidsJogos} from './KidsJogos';
+export {default as KidsAtividades} from './KidsAtividades';

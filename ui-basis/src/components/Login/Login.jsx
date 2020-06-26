@@ -1,26 +1,83 @@
-import React, { Component} from 'react'
+import React, { Component } from 'react';
 
-import '../../assets/scss/Form.scss'
-import facebook from '../../assets/img/facebook.png'
-import google from '../../assets/img/google.png'
-
-
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL } from '../../constants/index';
+import { Button } from 'reactstrap';
+import { Modal, Row } from 'react-bootstrap';
+import google from '../../assets/img/google.png';
+import facebook from '../../assets/img/facebook.png';
+import { isAccessTokenAvailable, logout } from '../../utils/authentication';
 class Login extends Component {
-    
+
+    constructor() {
+        super();
+        this.state = {
+            loginModal: false,
+            userLogged: isAccessTokenAvailable()
+        }
+    }
+
     render() {
         return (
-            <div className="Body">
-                <br/>
-                <br/>
-                <label>Realizar login com:</label>
-                <br/>
-                <a href="http:localhost:8080/api/oauth2/authorize/facebook?redirect_uri=http://localhost:3000/oauth2/redirect"><img alt="facebook" src={facebook} width="40px"/></a>
-                <a href="http:localhost:8080/api/oauth2/authorize/google?redirect_uri=http://localhost:3000/oauth2/redirect"><img alt="google" src={google} width="60px"/></a>
-                    
-            </div>
-        )
+            <div>
+                <Button
+                    className="btn-round"
+                    color="dark"
+                    type="button"
+                    onClick={
+                        () => {
+                            console.log(this.state);
+                            this.setState({ loginModal: true, userLogged: isAccessTokenAvailable() })
+                        }
+                    }
+                >
+                    Conta
+            </Button>
+                <div>
+                    <Modal
+                        size='sm'
+                        style={{ marginLeft: '400px' }}
+                        show={this.state.loginModal}
+                        onHide={() => this.setState({ loginModal: false })}>
+                        <Modal.Body style={{ padding: '20px' }}>
+                            {!this.state.userLogged ?
+                                <div style={{ paddingTop: '20px' }}>
+                                    <Button color="light" href={GOOGLE_AUTH_URL} block>
+                                        <img alt="google" src={google} width="30px" />  Login com Google
+                                </Button><br /><br />
+                                </div>
+
+                                :
+
+                                <div style={{padding:'20px'}}>
+                                    <Row>
+                                        <Button className="btn-round" color="light" href='/lojas' block>
+                                            Cadastrar Loja
+                                </Button>
+                                    </Row>
+                                    <Row>
+                                        <Button className="btn-round" color="light" href='/minhasLojas' block>
+                                            Minhas Lojas
+                                    </Button>
+                                    </Row>
+                                    <Row>
+                                        <Button className="btn-round" color="light" href='/home'
+                                            onClick={logout}
+                                            block>
+                                            Sair
+                                        </Button>
+                                    </Row>
+
+                                </div>
+                            }
+                        </Modal.Body>
+                    </Modal>
+                </div>
+
+            </div >
+        );
     }
 }
-  
 
-export default Login
+
+
+export default Login        

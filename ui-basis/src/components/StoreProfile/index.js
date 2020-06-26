@@ -1,0 +1,1 @@
+export {default as StoreProfile} from './StoreProfile'

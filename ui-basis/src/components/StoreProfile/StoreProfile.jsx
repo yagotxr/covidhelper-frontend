@@ -63,6 +63,9 @@ class StoreProfile extends Component {
                                         <Card.Body>
                                             <Card.Title>{store.name}</Card.Title>
                                             <br />
+                                            
+                                        </Card.Body>
+                                        <Card.Footer>
                                             <Row>
                                                 <Col md={4}>
                                                     <Products store={store} />
@@ -79,7 +82,7 @@ class StoreProfile extends Component {
                                                     </Button>
                                                 </Col>
                                             </Row>
-                                        </Card.Body>
+                                        </Card.Footer>
                                     </Card>
                                 </div>
                             )}

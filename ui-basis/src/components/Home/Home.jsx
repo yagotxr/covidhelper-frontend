@@ -1,14 +1,12 @@
 import React, { Component} from 'react'
 
 import '../../assets/scss/Form.scss'
-import { 
+import {
     Card, CardBody, CardTitle,CardHeader, Label
 } from 'reactstrap';
 import axios from 'axios';
 
-
 class Home extends Component {
-    
     constructor(props){
         super(props)
 
@@ -19,7 +17,7 @@ class Home extends Component {
             cidade:[]
         }
     }
-    
+
     componentDidMount() {
         this.getLocal()
     }
@@ -28,7 +26,7 @@ class Home extends Component {
         navigator.geolocation.getCurrentPosition( location => {
             console.log(location.coords)
             this.setState({'longitude': location.coords.longitude, 'latitude': location.coords.latitude})
-            
+
             axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {params: {latitude: this.state.latitude ,longitude: this.state.longitude , localityLanguage:'ptF'}})
             .then(response => {
                 this.setState({'cidade': response.data.city})
@@ -85,6 +83,6 @@ class Home extends Component {
         )
     }
 }
-  
+
 
 export default Home

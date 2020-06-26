@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table, Modal, Button } from 'react-bootstrap';
 import { API_BASE_URL, ACCESS_TOKEN } from '../../constants';
-import Axios from 'axios';
+import axios from 'axios';
 import deleteIcon from '../../assets/img/delete-icon.png';
 
 
@@ -13,11 +13,12 @@ class Products extends Component {
             lgShow: false,
             products: []
         }
+        this.deleteProduct = this.deleteProduct.bind(this);
     }
 
     componentDidMount() {
         const url = `${API_BASE_URL}/account/stores/${this.props.store.id}/products`;
-        Axios.get(url, {
+        axios.get(url, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
             }
@@ -36,13 +37,33 @@ class Products extends Component {
         this.setState({ lgShow: true });
     }
 
+    deleteProduct(product){
+        const storeId = this.props.store.id;
+        axios.delete(`${API_BASE_URL}/account/stores/${storeId}/products/${product.id}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
+            }
+        })
+            .then((res) => {
+            console.log(storeId);
+                const productArr = this.state.products;
+                const removeIndex = this.state.products.map(function (item) { return item.id; }).indexOf(product.id);
+                productArr.splice(removeIndex, 1);
+                this.setState({ products: productArr });
+                console.log(this.state);
+            })
+            .catch((err) => {
+                window.alert(err.response.message);
+            });
+    }
+
     render() {
         return (
             <>
-                <Button 
-                size='sm'
-                variant='dark' 
-                onClick={() => this.setLgShow(true)}>
+                <Button
+                    size='sm'
+                    variant='dark'
+                    onClick={() => this.setLgShow(true)}>
                     Detalhes
                 </Button>
                 <Modal
@@ -59,9 +80,9 @@ class Products extends Component {
                     <Modal.Body>
 
                         <div style={{ padding: '25px' }}>
-                            <Button 
-                            size='sm' 
-                            href={`/produtos?storeId=${this.props.store.id}`}>
+                            <Button
+                                size='sm'
+                                href={`/produtos?storeId=${this.props.store.id}`}>
                                 Adicionar Produtos
                         </Button>
                         </div>
@@ -81,11 +102,14 @@ class Products extends Component {
                                             <td>{product.stock}</td>
                                             <td>
                                                 <div>
-                                                   <Button 
-                                                   variant='link' 
-                                                   size='sm' block>
-                                                       <img src={deleteIcon} width='20px'></img>
-                                                    </Button> 
+                                                    <Button
+                                                        variant='danger'
+                                                        size='sm' block
+                                                        onClick={() =>
+                                                            this.deleteProduct(product)
+                                                        }>
+                                                        Deletar
+                                                    </Button>
                                                 </div>
                                             </td>
                                         </tr>

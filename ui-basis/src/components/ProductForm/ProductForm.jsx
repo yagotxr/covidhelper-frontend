@@ -16,7 +16,7 @@ class ProductForm extends Component {
             storeId: '',
             name: '',
             description: '',
-            stock: 400
+            stock: 0
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,7 +46,7 @@ class ProductForm extends Component {
                 this.setState({ inserted: true })
             })
             .catch((err) => {
-                window.alert('Não foi possível registrar o produto. Tente novamente. ' + err.message)
+                window.alert(err.response.message)
             })
     }
 

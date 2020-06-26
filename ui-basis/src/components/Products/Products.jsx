@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Table, Modal, Button } from 'react-bootstrap';
 import { API_BASE_URL, ACCESS_TOKEN } from '../../constants';
 import Axios from 'axios';
+import deleteIcon from '../../assets/img/delete-icon.png';
+
 
 class Products extends Component {
     constructor() {
@@ -37,7 +39,12 @@ class Products extends Component {
     render() {
         return (
             <>
-                <Button onClick={() => this.setLgShow(true)}>Detalhes</Button>
+                <Button 
+                size='sm'
+                variant='dark' 
+                onClick={() => this.setLgShow(true)}>
+                    Detalhes
+                </Button>
                 <Modal
                     size="lg"
                     show={this.state.lgShow}
@@ -46,18 +53,20 @@ class Products extends Component {
                 >
                     <Modal.Header closeButton>
                         <Modal.Title id="example-modal-sizes-title-lg">
-                            {this.props.store.name}
+                            <b>{this.props.store.name}</b>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
 
-                        <div style={{padding:'25px'}}>
-                            <Button href={`/produtos?storeId=${this.props.store.id}`}>
-                             Adicionar Produtos
+                        <div style={{ padding: '25px' }}>
+                            <Button 
+                            size='sm' 
+                            href={`/produtos?storeId=${this.props.store.id}`}>
+                                Adicionar Produtos
                         </Button>
                         </div>
                         {this.state.products.length === 0 ?
-                            <div style={{padding:'25px'}}>
+                            <div style={{ padding: '25px' }}>
                                 <h3>Nenhum produto registrado</h3>
                             </div>
 
@@ -70,6 +79,15 @@ class Products extends Component {
                                             <td>{product.name}</td>
                                             <td>{product.description}</td>
                                             <td>{product.stock}</td>
+                                            <td>
+                                                <div>
+                                                   <Button 
+                                                   variant='link' 
+                                                   size='sm' block>
+                                                       <img src={deleteIcon} width='20px'></img>
+                                                    </Button> 
+                                                </div>
+                                            </td>
                                         </tr>
                                     )}
                                 </tbody>

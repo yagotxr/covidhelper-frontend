@@ -1,38 +1,80 @@
-import React, { Component} from 'react'
+import React, { Component } from 'react'
 import '../../assets/scss/Form.scss'
-import { FormGroup, Col, Form, Row, Input, Label, Button
-} from 'reactstrap'
+import { Card, CardDeck, CardHeader, Label, CardBody
+} from 'reactstrap';
+import axios from 'axios';
 
 
 class ProductList extends Component {
-    
+    constructor(props){
+        super(props)
+
+        this.state = {
+            dados: [],
+            longitude: [],
+            latitude: [],
+            cidade:[]
+        }
+    }
+
+    componentDidMount() {
+        this.getLocal()
+    }
+
+    getLocal(){
+        navigator.geolocation.getCurrentPosition( location => {
+            console.log(location.coords)
+            this.setState({'longitude': location.coords.longitude, 'latitude': location.coords.latitude})
+
+            axios.get('https://api.bigdatacloud.net/data/reverse-geocode-client', {params: {latitude: this.state.latitude ,longitude: this.state.longitude , localityLanguage:'ptF'}})
+            .then(response => {
+                this.setState({'cidade': response.data.city})
+                axios.get('http://localhost:8080/api/products',  {params: {city: this.state.cidade}})
+                .then(response => {
+                    console.log(response)
+                    this.setState({'dados': response.data})
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        });
+}
     render() {
+        const { dados, cidade } = this.state
+
         return (
-            <div className="Body">
-                <Form className = "Form">
-                    <h4>Produtos Disponíveis</h4>
+            <div className="Body">            
+                <header>
                     <br/>
-               <Row form>
-                        <Col md={6}>
-                        <FormGroup>
-                            <Label for="nome">Produto</Label>
-                            <Input type="text" name="name" id="Nome"/>
-                        </FormGroup>
-                        </Col>
-                        <Col md={2}>
-                        <FormGroup>
-                            <Label for="stock">Estoque</Label>
-                            <Input type="number" name="stock" id="stock"/>
-                        </FormGroup>
-                        </Col>
-                    </Row>
-                   
-                    <Button className="btn-round" color="primary">Buscar</Button>
-                </Form>
+                    <h4>Produtos essenciais em {cidade}</h4>
+                    <hr />
+                </header>
+                <CardDeck>{
+                    Object.keys(dados).map((key, index) => ( 
+                    <Card border="primary" style={{ width: '18rem' }}key={index}> 
+                        {dados[key].map(dado => 
+                        <CardHeader><b>{dado.name}</b></CardHeader>
+                        )}
+                        <CardBody>
+                            {dados[key].map(dado => 
+                            <Label><b>Descrição:</b> {dado.description}</Label>
+                            )}<br/>
+                            {dados[key].map(dado => 
+                            <Label><b>Estoque disponível:</b> {dado.stock}</Label>
+                            )}
+                        </CardBody>
+                    </Card> 
+                    ))
+                }</CardDeck>
+                                                   
             </div>
         )
     }
 }
-  
+
 
 export default ProductList

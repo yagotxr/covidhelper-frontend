@@ -4,8 +4,6 @@ import { } from '../../utils/authentication';
 import axios from 'axios';
 import { API_BASE_URL, ACCESS_TOKEN } from '../../constants';
 import { Products } from '../Products';
-import Login from '../Login/Login'
-import deleteIcon from '../../assets/img/delete-icon.png';
 
 class StoreProfile extends Component {
     constructor() {

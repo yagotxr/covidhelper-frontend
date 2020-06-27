@@ -21,7 +21,7 @@ class Map extends Component {
     
     render() {
         return (
-            <div url={this.state.localizacao}>
+            <div >
             </div>
         )
     }

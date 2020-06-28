@@ -47,6 +47,9 @@ class NavBar extends Component {
                             <NavItem>
                                 <NavLink href="/produtoslista">Produtos essenciais</NavLink>
                             </NavItem>
+                            <NavItem>
+                                <NavLink href="/faq">FAQ</NavLink>
+                            </NavItem>
                             
                         </Nav>
                         <div className="ml-auto"> 

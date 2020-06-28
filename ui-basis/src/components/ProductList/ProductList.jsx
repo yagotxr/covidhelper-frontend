@@ -13,8 +13,11 @@ class ProductList extends Component {
             dados: [],
             longitude: [],
             latitude: [],
-            cidade:[]
+            cidade: [],
+            loja: [],
+            id: [],
         }
+        
     }
 
     componentDidMount() {
@@ -30,9 +33,24 @@ class ProductList extends Component {
             .then(response => {
                 this.setState({'cidade': response.data.city})
                 axios.get('http://localhost:8080/api/products',  {params: {city: this.state.cidade}})
-                .then(response => {
-                    console.log(response)
-                    this.setState({'dados': response.data})
+                .then(resposta => {
+                    console.log(resposta)
+                    this.setState({'dados': resposta.data})
+                    this.setState({'id': Object.keys(resposta.data)})
+                    
+                    for(let i=0; i<this.state.id.length; i++){
+                        let req = `http://localhost:8080/api/stores/${this.state.id[i]}`
+                        axios.get(req)
+                        .then(response => {
+                            this.setState({
+                                loja : this.state.loja.concat(response.data)
+                              })
+                            console.log(this.state.loja)
+                        })
+                        .catch(error => {
+                            console.log(error)
+                        })
+                    }
                 })
                 .catch(error => {
                     console.log(error)
@@ -44,7 +62,7 @@ class ProductList extends Component {
         });
 }
     render() {
-        const { dados, cidade } = this.state
+        const { dados, cidade, loja} = this.state
 
         return (
             <div className="Body">            
@@ -66,6 +84,11 @@ class ProductList extends Component {
                             {dados[key].map(dado => 
                             <Label><b>Estoque disponível:</b> {dado.stock}</Label>
                             )}
+                            <br/>
+                            {loja.map(l => 
+                            <Label><b>Loja:</b> {l.name}</Label>
+                            )}<br/>
+                            
                         </CardBody>
                     </Card> 
                     ))

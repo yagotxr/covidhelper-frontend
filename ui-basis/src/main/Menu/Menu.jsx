@@ -9,7 +9,10 @@ const links = [
     { route: "/atividades"},
     { route: "/jogos"},
     { route: "/produtos"},
+    { route: "/produtoslista"},
+    { route: "/lojaslista"},
     { route: "/home"},
+    { route: "/faq"},
 ];
 
 export class Menu extends Component {

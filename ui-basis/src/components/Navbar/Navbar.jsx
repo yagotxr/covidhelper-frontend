@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-
 import covid from '../../assets/img/coronavirus.png'
 import Login from '../../components/Login/Login'
-import {
-    Navbar, NavDropdown, Nav
-} from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 
 
 class NavBar extends Component {
@@ -38,6 +35,8 @@ class NavBar extends Component {
                         <Nav.Link href="/kids">Espaço Kids</Nav.Link>
                         <Nav.Link href="/noticias">Notícias</Nav.Link>
                         <Nav.Link href="/nomatch">Produtos</Nav.Link>
+                        <Nav.Link href="/noticias">Notícias</Nav.Link>
+                        <Nav.Link href="/produtoslista">Produtos essenciais</Nav.Link>
                     </Nav>
                     <Login />
                 </Navbar.Collapse>

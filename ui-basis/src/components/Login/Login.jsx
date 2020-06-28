@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 import { GOOGLE_AUTH_URL } from '../../constants/index';
 import { Button } from 'reactstrap';
-import { Modal, Row } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import google from '../../assets/img/google.png';
 import { isAccessTokenAvailable, logout } from '../../utils/authentication';
 class Login extends Component {
 
     constructor() {
+
         super();
         this.state = {
             loginModal: false,

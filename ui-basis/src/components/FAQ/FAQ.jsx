@@ -142,6 +142,9 @@ class FAQ extends Component {
                         </div>
                     </div>
                 </div>
+                <footer>
+                    <br/>
+                </footer>
             </div>  
         )
     }

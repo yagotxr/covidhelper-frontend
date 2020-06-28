@@ -15,7 +15,6 @@ class StoreProfile extends Component {
     }
 
     componentDidMount() {
-        console.log("oie");
         axios.get(`${API_BASE_URL}/account/users/stores`, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`
@@ -56,7 +55,7 @@ class StoreProfile extends Component {
                     <div>
                         <Row>
                             {this.state.stores.map(store =>
-                                <div>
+                                <div key={store.id}>
                                     <Card style={{ width: '20rem', height: '16rem' }}>
                                         <Card.Body>
                                             <Card.Title>{store.name}</Card.Title>

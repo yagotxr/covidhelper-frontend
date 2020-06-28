@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { GOOGLE_AUTH_URL } from '../../constants/index';
 import { Button } from 'reactstrap';
-import { Modal, Row } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import google from '../../assets/img/google.png';
 import { isAccessTokenAvailable, logout } from '../../utils/authentication';
 class Login extends Component {
@@ -21,21 +21,19 @@ class Login extends Component {
             <div>
                 <Button
                     className="btn-round"
-                    color="dark"
+                    color="light"
                     type="button"
                     onClick={
                         () => {
                             console.log(this.state);
                             this.setState({ loginModal: true, userLogged: isAccessTokenAvailable() })
                         }
-                    }
-                >
+                    }>
                     Conta
-            </Button>
+                </Button>
                 <div>
                     <Modal
                         size='sm'
-                        style={{ marginLeft: '400px' }}
                         show={this.state.loginModal}
                         onHide={() => this.setState({ loginModal: false })}>
                         <Modal.Body style={{ padding: '20px' }}>
@@ -48,24 +46,29 @@ class Login extends Component {
 
                                 :
 
-                                <div style={{padding:'20px'}}>
-                                    <Row>
-                                        <Button className="btn-round" color="light" href='/lojas' block>
+                                <div style={{ padding: '20px' }}>
+                                    <div style={{ paddingTop: '10px'}}>
+                                        <Button className="btn-round" color="light" href='/lojas'   block>
                                             Cadastrar Loja
-                                </Button>
-                                    </Row>
-                                    <Row>
+                                            </Button>
+                                    </div>
+                                    <div style={{ paddingTop: '10px'}}>
                                         <Button className="btn-round" color="light" href='/minhasLojas' block>
                                             Minhas Lojas
                                     </Button>
-                                    </Row>
-                                    <Row>
+                                    </div>
+                                    <div style={{ paddingTop: '10px' }}>
+                                        <Button className="btn-round" color="light" href='/chat' block>
+                                            Chat
+                                    </Button>
+                                    </div>
+                                    <div style={{ paddingTop: '10px'}}>
                                         <Button className="btn-round" color="light" href='/home'
                                             onClick={logout}
                                             block>
                                             Sair
                                         </Button>
-                                    </Row>
+                                    </div>
 
                                 </div>
                             }

@@ -3,7 +3,6 @@ import { Table, Modal, Button } from 'react-bootstrap';
 import { API_BASE_URL, ACCESS_TOKEN } from '../../constants';
 import axios from 'axios';
 
-
 class Products extends Component {
     constructor() {
         super();

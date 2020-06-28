@@ -15,6 +15,7 @@ import ProductList from '../../components/ProductList/ProductList';
 import StoreList from '../../components/StoreList/StoreList';
 import FAQ from '../../components/FAQ/FAQ';
 import AuthRedirectHandler from '../../components/AuthRedirectHandler/AuthRedirectHandler';
+import { Chat } from '../../components/ChatPage';
 
 export class Routes extends Component {
     render() {
@@ -34,6 +35,7 @@ export class Routes extends Component {
                     <Route path='/produtoslista' component={ProductList}/>
                     <Route path='/lojaslista' component={StoreList}/>
                     <Route path='/faq' component={FAQ}/>
+                    <Route path='/chat' component={Chat}/>
                     <Route path='/oauth2/redirect' component={AuthRedirectHandler}/>
                     <Route component={NoMatch}></Route>
                 </Switch>

@@ -34,7 +34,6 @@ class NavBar extends Component {
                     <Nav className="mr-auto">
                         <Nav.Link href="/kids">Espaço Kids</Nav.Link>
                         <Nav.Link href="/noticias">Notícias</Nav.Link>
-                        <Nav.Link href="/noticias">Notícias</Nav.Link>
                         <Nav.Link href="/produtoslista">Produtos essenciais</Nav.Link>
                         <Nav.Link href="/faq">FAQ</Nav.Link>
                     </Nav>

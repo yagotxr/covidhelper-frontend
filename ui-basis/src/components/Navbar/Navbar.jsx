@@ -37,6 +37,7 @@ class NavBar extends Component {
                         <Nav.Link href="/nomatch">Produtos</Nav.Link>
                         <Nav.Link href="/noticias">Notícias</Nav.Link>
                         <Nav.Link href="/produtoslista">Produtos essenciais</Nav.Link>
+                        <Nav.Link href="/faq">FAQ</Nav.Link>
                     </Nav>
                     <Login />
                 </Navbar.Collapse>
